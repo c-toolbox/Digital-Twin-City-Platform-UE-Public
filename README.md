@@ -28,8 +28,8 @@ gantt
     section Section
     Datahandling             :a1, 2023-10-01, 30d
     Installation script      :after a1  , 20d
-    section Another
-    Improve dynamic Visual components, eg: Realtime traffic :a2,2023-11-01  
+    section Low prio         :a2,2023-11-01  
+    Improve dynamic Visual components, eg: Realtime traffic : after a2  , 20d
 ```
 
 # Third Party
