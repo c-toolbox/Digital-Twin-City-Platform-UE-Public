@@ -26,7 +26,7 @@ gantt
     title A Gantt Diagram
     dateFormat  YYYY-MM-DD
     section Section
-    Datahandling             :a1, 2023-10-01, 30d
+    Datahandling             :a1, 2023-10-23, 30d
     Installation script      :after a1  , 20d
     
 ```
