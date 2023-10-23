@@ -1,0 +1,32 @@
+{
+    "Title": "Construction data",
+    "Sections": [
+        {
+            "Label1": "",
+            "SectionObject": [
+                {
+                    "Title": "Type of premises",
+                    "Text1": "This data set shows what the buildings are mainly used for.",
+                    "Text2": "Visusalization: DTCC, Chalmers",
+                    "Datasource": "",
+                    "Legend1": "building_functions_HR_big",
+                    "Legend2": "",
+                    "Default": true,
+                    "Idle": false,
+                    "Filenames": "Building/Building Types"
+                },
+                {
+                    "Title": "Year of construction",
+                    "Text1": "This data set shows the time period for construction of the buildings.",
+                    "Text2": "Visusalization: DTCC, Chalmers",
+                    "Datasource": "",
+                    "Legend1": "building_age_HR_big",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": true,
+                    "Filenames": "Building/Building Years"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "Title": "Noise",
+    "Sections": [
+        {
+            "Label1": "",
+            "SectionObject": [
+                {
+                    "Title": "Street simulation",
+                    "Text1": "Noise simulation in streetscape.\n\nA solitary night bus runs along Gibraltargatan. The noise level increases outside the façades along the street where the vehicle is travelling and the noise spreads among the buildings.",
+                    "Text2": "Sound propagation takes place via reflection from the building façades and the noise spreads around corners by means of diffraction. The calculations are based on simplified physical modelling of sound propagation in an urban environment. Visulization: DTCC, Chalmers",
+                    "Datasource": "",
+                    "Legend1": "simuloated_noise_level_HR",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "NoiseMedia/Noise-Media"
+                },
+                {
+                    "Title": "Noise map",
+                    "Text1": "Noise map for Gothenburg.\n\nShows annual average value for traffic noise. Noise mapping is undertaken within the EU for all cities with more than 100,000 inhabitants and for areas along major roads, rail lines and near airports.",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "noise_level_HR_big_text",
+                    "Legend2": "",
+                    "Default": true,
+                    "Idle": true,
+                    "Filenames": "Noise/Noise"
+                }
+            ]
+        }
+    ]
+}

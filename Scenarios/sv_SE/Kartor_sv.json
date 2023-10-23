@@ -1,0 +1,43 @@
+{
+    "Title": "Kartor",
+    "Sections": [
+        {
+            "Label1": "",
+            "SectionObject": [
+                {
+                    "Title": "Stadskarta",
+                    "Text1": "Stadskarta över Göteborg",
+                    "Text2": "",
+                    "Datasource": "",
+                    "Legend1": "",
+                    "Legend2": "",
+                    "Default": true,
+                    "Idle": true,
+                    "Filenames": "BaseMaps/CityMap"
+                },
+                {
+                    "Title": "Stadsdelar",
+                    "Text1": "Stadskarta över Göteborg med stadsdelar markerade",
+                    "Text2": "",
+                    "Datasource": "",
+                    "Legend1": "",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "No-Data"
+                },
+                {
+                    "Title": "Gatunamn",
+                    "Text1": "Stadskarta över Göteborg med vissa gatunamn markerade",
+                    "Text2": "",
+                    "Datasource": "",
+                    "Legend1": "",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "No-Data"
+                }
+            ]
+        }
+    ]
+}

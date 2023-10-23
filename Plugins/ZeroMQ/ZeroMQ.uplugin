@@ -1,0 +1,27 @@
+﻿{
+  "FileVersion": 1,
+  "Version": 1,
+  "VersionName": "1.0",
+  "FriendlyName": "ZeroMQ",
+  "Description": "Library of useful function from ZeroMQ",
+  "Category": "ZeroMQ Functions",
+  "CreatedBy": "Erik Junholm",
+  "CreatedByURL": "",
+  "DocsURL": "",
+  "MarketplaceURL": "",
+  "SupportURL": "",
+  "CanContainContent": false,
+  "IsBetaVersion": true,
+  "IsExperimentalVersion": true,
+  "Installed": true,
+  "SupportedTargetPlatforms": [
+    "Win64"
+  ],
+  "Modules": [
+  {
+    "Name": "ZeroMQ",
+    "Type": "Runtime",
+    "LoadingPhase": "Default"
+  }
+]
+}

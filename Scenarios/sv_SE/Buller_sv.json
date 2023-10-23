@@ -1,0 +1,32 @@
+{
+    "Title": "Buller",
+    "Sections": [
+        {
+            "Label1": "",
+            "SectionObject": [
+                {
+                    "Title": "Gatusimulering",
+                    "Text1": "Bullersimulering i gaturummet.\n\nEn nattbuss kör ensam på Gibraltargatan. Ljudnivån ökar vid fasaderna längs gatan där fordonet färdas och ljudet breder ut sig bland husen.",
+                    "Text2": "Ljudutbredningen sker via reflektion i husens fasader och genom diffraktion som sprider ljudet runt hörnen på husen. Beräkningarna baseras på en förenklad fysikalisk modellering av ljudutbredning i stadsmiljö.                                                                                                                                                                  Visualisering DTCC, Chalmers",
+                    "Datasource": "",
+                    "Legend1": "Simulerad_ljudnivå_HR",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "NoiseMedia/Noise-Media"
+                },
+                {
+                    "Title": "Bullerkarta",
+                    "Text1": "Bullerkarta för Göteborg.\n\nVisar årsmedelvärde av trafikbuller. Inom EU görs bullerkartläggning för alla städer med fler än 100 000 invånare och för områden längs större vägar, järnvägar och vid flygplatser.",
+                    "Text2": "",
+                    "Datasource": "",
+                    "Legend1": "ljudnivå_HR_stor_text",
+                    "Legend2": "",
+                    "Default": true,
+                    "Idle": true,
+                    "Filenames": "Noise/Noise"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,43 @@
+{
+    "Title": "Maps",
+    "Sections": [
+        {
+            "Label1": "",
+            "SectionObject": [
+                {
+                    "Title": "City map",
+                    "Text1": "City map, Gothenburg",
+                    "Text2": "",
+                    "Datasource": "",
+                    "Legend1": "No-Data",
+                    "Legend2": "",
+                    "Default": true,
+                    "Idle": true,
+		    "Filenames": "BaseMaps/CityMap"
+                },
+                {
+                    "Title": "Districs",
+                    "Text1": "City map, Gothenburg with districs",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "No-Data",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "No-Data"
+                },
+                {
+                    "Title": "Street names",
+                    "Text1": "City map, Gothenburg with street names",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "No-Data",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "No-Data"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,176 @@
+{
+    "Title": "Favorites",
+    "Sections": [
+        {
+            "Label1": "",
+            "SectionObject": [
+            
+                {
+                    "Title": "Houses/ocean 1",
+                    "Text1": "Future constructions and rise in sea level 2070",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "No-Data",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "SeaLevelRise/Year 2070,FutureCity/newInfrastructure,FutureCity/newPark,FutureCity/2011_buildings,FutureCity/2025_buildings,FutureCity/2035_buildings,FutureCity/2050_buildings"
+                },
+                {
+                    "Title": "Houses/cloudburst 1",
+                    "Text1": "Future constructions and maximum waterdepth at a 100-year rain event without any actions taken.",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "No-Data",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "FutureCity/newInfrastructure,FutureCity/newPark,FutureCity/2011_buildings,FutureCity/2025_buildings,FutureCity/2035_buildings,FutureCity/2050_buildings"
+                },
+                {
+                    "Title": "Houses/cloudburst 2",
+                    "Text1": "Future constructions and maximum waterdepth at a 100-year rain event with actions taken.",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "No-Data",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "FutureCity/newInfrastructure,FutureCity/newPark,FutureCity/2011_buildings,FutureCity/2025_buildings,FutureCity/2035_buildings,FutureCity/2050_buildings"
+                },
+                {
+                    "Title": "Houses/noise",
+                    "Text1": "Future constructions and noise simulation along Gibraltargatan.",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "No-Data",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "NoiseMedia/Noise-Media,FutureCity/newInfrastructure,FutureCity/newPark,FutureCity/2011_buildings,FutureCity/2025_buildings,FutureCity/2035_buildings,FutureCity/2050_buildings"
+                },
+                {
+                    "Title": "Many layers...",
+                    "Text1": "Here is a mix of many data sets at the same time. A lot of information easily gets to much information... ",
+                    "Text2": "",
+                    "Datasource": "",
+                    "Legend1": "",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "Orthos/Ortofoto 1998,FutureCity/newInfrastructure,FutureCity/newPark,FutureCity/2011_buildings,FutureCity/2025_buildings,FutureCity/2035_buildings,FutureCity/2050_buildings,vasttrafik_livemap/bus,vasttrafik_livemap/tram,vasttrafik_livemap/train,vasttrafik_livemap/boat"
+                },
+                {
+                    "Title": "Datavisualization",
+                    "Text1": "Visualization is about making a big and complex amount of data understandable.",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": true,
+                    "Filenames": "No-Data"
+                },
+                {
+                    "Title": "The Global Goals",
+                    "Text1": "A digital twin city can be an aid in the work with The Global Goals and a sustainable future.",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "CleanColor/Goals_en"
+                },
+                {
+                    "Title": "White",
+                    "Text1": "",
+                    "Text2": "",
+                    "Datasource": "",
+                    "Legend1": "",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Orange",
+                    "Text1": "",
+                    "Text2": "",
+                    "Datasource": "",
+                    "Legend1": "",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "CleanColor/orange"
+                },
+                {
+                    "Title": "Yellow",
+                    "Text1": "",
+                    "Text2": "",
+                    "Datasource": "",
+                    "Legend1": "",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "CleanColor/Yellow"
+                },
+                {
+                    "Title": "Green",
+                    "Text1": "",
+                    "Text2": "",
+                    "Datasource": "",
+                    "Legend1": "",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "CleanColor/Green"
+                },
+                {
+                    "Title": "Blue",
+                    "Text1": "",
+                    "Text2": "",
+                    "Datasource": "",
+                    "Legend1": "",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "CleanColor/Blue"
+                },
+                {
+                    "Title": "Lime Green",
+                    "Text1": "",
+                    "Text2": "",
+                    "Datasource": "",
+                    "Legend1": "",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "CleanColor/limegreen"
+                },
+                {
+                    "Title": "Magenta",
+                    "Text1": "",
+                    "Text2": "",
+                    "Datasource": "",
+                    "Legend1": "",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "CleanColor/magenta"
+                },
+                {
+                    "Title": "Bright Blue",
+                    "Text1": "",
+                    "Text2": "",
+                    "Datasource": "",
+                    "Legend1": "",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "CleanColor/brightblue"
+                }
+            ]
+        }
+    ]
+}
