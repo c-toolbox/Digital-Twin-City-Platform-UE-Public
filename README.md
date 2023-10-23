@@ -30,7 +30,7 @@ gantt
     Installation script      :after a1  , 20d
     section Low prio         
     Improve Dynamic visuals  :a2, 2023-11-15, 30d
-    Handle mediadataset
+    Handle mediadataset      :after a2, 15d
 ```
 
 # Third Party
