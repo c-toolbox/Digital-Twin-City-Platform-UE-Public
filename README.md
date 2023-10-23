@@ -23,15 +23,13 @@ The GeoReferencing plugin from UE 4.27 is currently used in the Digital Twin.
 
 ```mermaid
 gantt
-    title Roadmap
+    title A Gantt Diagram
     dateFormat  YYYY-MM-DD
     section Section
-    Refactor raster handling :a1, 2023-11-01, 30d
-    Another task     :after a1  , 20d
+    Datahandling             :a1, 2023-10-01, 30d
+    Installation script      :after a1  , 20d
     section Another
-    Task in sec      :2023-11-01  , 12d
-    another task      : 24d
-
+    Improve dynamic Visual components, eg: Realtime traffic :a2,2023-11-01  
 ```
 
 # Third Party
