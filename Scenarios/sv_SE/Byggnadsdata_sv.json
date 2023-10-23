@@ -1,0 +1,32 @@
+{
+    "Title": "Byggnadsdata",
+    "Sections": [
+        {
+            "Label1": "",
+            "SectionObject": [
+                {
+                    "Title": "Typ av lokal",
+                    "Text1": "Detta datalager visar vad byggnaderna i huvudsak används till.",
+                    "Text2": "Visualisering DTCC, Chalmers",
+                    "Datasource": "",
+                    "Legend1": "byggnadsfunktion_HR_stor",
+                    "Legend2": "",
+                    "Default": true,
+                    "Idle": false,
+                    "Filenames": "Building/Building Types"
+                },
+                {
+                    "Title": "Byggår",
+                    "Text1": "Detta datalager visar vilken tidsperiod byggnaderna är uppförda.",
+                    "Text2": "Visualisering DTCC, Chalmers",
+                    "Datasource": "",
+                    "Legend1": "byggnadsår_HR_stor",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": true,
+                    "Filenames": "Building/Building Years"
+                }
+            ]
+        }
+    ]
+}

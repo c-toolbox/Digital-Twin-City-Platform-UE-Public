@@ -1,0 +1,92 @@
+{
+    "Title": "Sea level rise",
+    "Sections": [
+        {
+            "Label1": "",
+            "SectionObject": [
+                {
+                    "Title": "Year 1809",
+                    "Text1": "Historical maps\n\nGothenburg is built on water – extent of the Göta Älv river in 1809",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "No-Data",
+                    "Legend2": "",
+                    "Default": true,
+                    "Idle": false,
+                    "Filenames": "No-Data"
+                },
+                {
+                    "Title": "Year 1910",
+                    "Text1": "Historical maps\n\nGothenburg is built on water – extent of the Göta Älv river in 1910",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "No-Data",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "No-Data"
+                },
+                {
+                    "Title": "Year 1921",
+                    "Text1": "Historical maps\n\nGothenburg is built on water – extent of the Göta Älv river in 1921",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "No-Data",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "No-Data"
+                },
+                {
+                    "Title": "Year 2011",
+                    "Text1": "Historical maps\n\nGothenburg is built on water – extent of the Göta Älv river in 2011",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "No-Data",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "No-Data"
+                }
+            ]
+        },
+        {
+            "Label1": "Scenario – high flow",
+            "SectionObject": [
+                {
+                    "Title": "Year 2014",
+                    "Text1": "Sea level – current situation",
+                    "Text2": "",
+                    "Datasource": "",
+                    "Legend1": "sea_level_raise_2014_HR",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "SeaLevelRise/Year 2014"
+                },
+                {
+                    "Title": "Year 2070",
+                    "Text1": "Sea level – future scenario",
+                    "Text2": "The sea level is expected to rise and the Göta Älv river will spread – expected situation in 2070",
+                    "Datasource": "",
+                    "Legend1": "sea_level_raise_2070_HR",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "SeaLevelRise/Year 2070"
+                },
+                {
+                    "Title": "Year 2100",
+                    "Text1": "Sea level – future scenario",
+                    "Text2": "Simulated for the highest sea level over a 24-hour period in 2100. The calculation assumes dry weather. The flow from watercourses flowing into the Göta Älv river is set to its highest level (HQ). ",
+                    "Datasource": "",
+                    "Legend1": "sea_level_raise_2100_HR",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": true,
+                    "Filenames": "SeaLevelRise/Year 2100"
+                }
+            ]
+        }
+    ]
+}

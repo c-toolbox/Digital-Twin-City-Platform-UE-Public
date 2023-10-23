@@ -1,0 +1,6 @@
+[submodule "Plugins/AppDesign"]
+	path = Plugins/AppDesign
+	url = ../../common/AppDesign.git
+[submodule "Plugins/MaterialFunctionsLibrary"]
+	path = Plugins/MaterialFunctionsLibrary
+	url = ../../common/MaterialFunctionsLibrary.git

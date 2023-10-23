@@ -1,0 +1,37 @@
+{
+    "Title": "Västtrafik",
+    "Sections": [
+        {
+            "Label1": "Trafikslag",
+            "SectionObject": [
+                {
+                    "Title": "- Spårvagn\n- Stadsbuss\n- Regionsbuss\n- Tåg",
+                    "Text1": "Detta informationslager visar Västtrafiks olika trafikslag i realtid.",
+                    "Text2": "",
+                    "Datasource": "",
+                    "Legend1": "Västrafik_HR_stort_typsnitt",
+                    "Legend2": "",
+                    "Default": true,
+                    "Idle": true,
+                    "Filenames": "vasttrafik_livemap/bus,vasttrafik_livemap/tram,vasttrafik_livemap/train,vasttrafik_livemap/boat"
+                }
+            ]
+        },
+        {
+            "Label1": "No-Data",
+            "SectionObject": [
+                {
+                    "Title": "Linjesystem",
+                    "Text1": "No-Data",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "No-Data",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "No-Data"
+                }
+            ]
+        }
+    ]
+}

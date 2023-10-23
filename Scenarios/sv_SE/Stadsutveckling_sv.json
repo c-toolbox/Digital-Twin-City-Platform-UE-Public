@@ -1,0 +1,21 @@
+{
+    "Title": "Stadsutveckling",
+    "Sections": [
+        {
+            "Label1": "",
+            "SectionObject": [
+                {
+                    "Title": "Stadsutveckling, framtida byggnationer\n-2011\n-2025\n-2035\n-2050",
+                    "Text1": "Stadsutveckling, framtida byggnationer. Färgerna visar ungefär när i tiden som bebyggelsen är planerad att vara klar.",
+                    "Text2": "",
+                    "Datasource": "",
+                    "Legend1": "stadsutveckling_HR_stor",
+                    "Legend2": "",
+                    "Default": true,
+                    "Idle": true,
+                    "Filenames": "FutureCity/newInfrastructure,FutureCity/newPark,FutureCity/2011_buildings,FutureCity/2025_buildings,FutureCity/2035_buildings,FutureCity/2050_buildings"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,37 @@
+{
+    "Title": "Traffic",
+    "Sections": [
+        {
+            "Label1": "Types of traffic",
+            "SectionObject": [
+                {
+                    "Title": "- Tram\n- City bus\n- Regional bus\n- Train",
+                    "Text1": "This information set shows Västtrafik’s different types of traffic in real time.",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "Västtrafik_eng_HR_big_types",
+                    "Legend2": "",
+                    "Default": true,
+                    "Idle": true,
+                    "Filenames": "vasttrafik_livemap/bus,vasttrafik_livemap/tram,vasttrafik_livemap/train,vasttrafik_livemap/boat"
+                }
+            ]
+        },
+        {
+            "Label1": "No-Data",
+            "SectionObject": [
+                {
+                    "Title": "Line system",
+                    "Text1": "No-Data",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "No-Data",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": ""
+                }
+            ]
+        }
+    ]
+}

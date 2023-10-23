@@ -1,0 +1,219 @@
+{
+    "Title": "Attractions",
+    "Sections": [
+        {
+            "Label1": "",
+            "SectionObject": [
+                {
+                    "Title": "Universeum",
+                    "Text1": "Universeum\n\nYou are here! Sweden’s national science centre located near Korsvägen in Gothenburg’s event district.",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "Universeum1024x1024",
+                    "Legend2": "",
+                    "Default": true,
+                    "Idle": true,
+                    "Position": "57.69553385592515, 11.98950845231035","Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Feskekôrka",
+                    "Text1": "Feskekôrka\n\nOriginally called Fiskhallen (Fish hall), opened in 1874. An iconic fish and seafood market that gets its name from its resemblance to a church.",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "feskekörka",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.701039088084, 11.957812497211389","Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Lilla Bommen",
+                    "Text1": "Lilla Bommen – The Lipstick\n\nThe name Lilla Bommen refers to the skyscraper, a square and the area around the guest harbour.",
+                    "Text2": "However, this 86-metre-high red and white striped building is probably most popularly known as the Lipstick. Other names include the Skanska Skyscraper and the Water Level.",
+                    "Datasource": "",
+                    "Legend1": "lillabommen",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.71339325166829, 11.967539175240208","Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Liseberg",
+                    "Text1": "Liseberg\n\nThe Nordic region’s biggest amusement park. Opened during the Gothenburg Tercentennial Jubilee Exposition in 1923.",
+                    "Text2": "Has been Sweden’s most popular visitor attraction for many years.",
+                    "Datasource": "",
+                    "Legend1": "Liseberg",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.69492394746997, 11.992133494569146","Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Kopparmärra",
+                    "Text1": "Kopparmärra\n\nKarl IX’s equestrian statue. Has stood in its present location near Kungsportsplatsen since 1936. As Duke Karl, he founded the forerunner to present-day Gothenburg, known as Karl IX’s Gothenburg.",
+                    "Text2": "The name Kopparmärra (literally copper mare) is a distinct example of the Gothenburg sense of humour, as the king sits atop a stallion made of bronze (88 per cent copper and 12 per cent tin). Image source: Wikimedia, Mattias Blomgren",
+                    "Datasource": "",
+                    "Legend1": "Kopparmärra1024x1024",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.70458423244316, 11.969741131154152","Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Poseidon",
+                    "Text1": "Poseidon\n\nSited at Götaplatsen, facing down towards Kungsportsavenyn, is Poseidon, one of Gothenburg’s best-known landmarks.",
+                    "Text2": "The bronze statue was created by Carl Milles and unveiled in 1931.",
+                    "Datasource": "",
+                    "Legend1": "poseidon",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.69719055937935, 11.979598660939955","Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Göteborg Opera",
+                    "Text1": "Göteborg Opera\n\nGöteborg Opera is located at Lilla Bommen and was inaugurated in 1994 over three consecutive evenings. In attendance on the final evening was godmother of the opera house, celebrated Swedish opera singer Birgit Nilsson.",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "goteborgsoperan",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.71065338555662, 11.96321796039706","Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Slottsskogen",
+                    "Text1": "Slottsskogen\n\nIts official name is Slottsskogsparken. The park is located in a forest that was once part of the Älvsborg royal estate, dating back 600 years. It has been open to the public since 1876.",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "slottsskogen",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.6865376291601, 11.942198877458628","Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "G. Botanical Garden",
+                    "Text1": "Gothenburg Botanical Garden\n\nGothenburg Botanical Garden was inaugurated in connection with the Gothenburg Tercentennial Jubilee Exposition in 1923. It now encompasses 175 hectares (40 hectares of cultivated gardens), incorporating parts of Änggårdsbergen nature reserve.",
+                    "Text2": "Around 16,000 different species are grown here, 4,000 in greenhouses.",
+                    "Datasource": "",
+                    "Legend1": "botaniskaträdgården",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.68228820587804, 11.950013296674497","Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Skansen Lejonet",
+                    "Text1": "Skansen Lejonet\n\nSkansen Lejonet is a 17th-century fortress situated atop Gullberget. It is used today as a function room for hire, among other things. Listed building since 1935.",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "skansenlejonet",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.71434447629241, 11.989441748464678","Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Skansen Kronan",
+                    "Text1": "Skansen Kronan\n\nSkansen Kronan is a 17th-century fortress situated atop Risåsberget (also known as Skansberget). It is used today as a function room for hire and café, among other things. Listed building since 1935.",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "skansenkronan",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.69604722132637, 11.955352592896999","Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Kronhuset",
+                    "Text1": "Kronhuset (craft centre)\n\nKronhuset is one of Gothenburg’s oldest buildings. It was constructed between 1643 and 1654 and was used at that time as an armoury, i.e. a storehouse for cannons and other weapons, but also as a food store. Image source: Wikimedia, Andrzej Otrębski",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "Kronhuset1024x1024",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.707882565682766, 11.963680784393313","Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Gustav Adolfs torg",
+                    "Text1": "Gustav Adolfs torg\n\nFollowing the erection of the Gustav II Adolf statue (1854), Stora torget came to be known as Gustav Adolfs torg instead. The statue depicts Gustav II Adolf pointing with his right hand down at the square while gazing into the distance.",
+                    "Text2": "This portrays the supposed instance when the king proclaimed “Here shall the city lie!”. The statue thus symbolically represents the creation of the city of Gothenburg.",
+                    "Datasource": "",
+                    "Legend1": "gustavadolfstorg",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.7071320981395, 11.96682197912706","Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Garden Society",
+                    "Text1": "Garden Society of Gothenburg\n\nCity park in central Gothenburg housing a rose garden, greenhouses, palm house, cafés, restaurant and an outdoor stage. Listed building status since 1992.",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "trädgårdsföreningen",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.70526100435004, 11.975520140462423","Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Scandinavium",
+                    "Text1": "Scandinavium\n\nGothenburg’s largest indoor arena for both sports events and concerts. Home arena for Frölunda Hockey Club. Image source: Wikimedia, Mattias Blomgren",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "Scandinavium1024x1024",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.69923554813713, 11.987653790095274","Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Gamla Ullevi stadium",
+                    "Text1": "Gamla Ullevi stadium\n\nFootball arena with an audience capacity of just over 18,000 spectators. On the same site as the former Gamla Ullevi arena. Home arena for IFK Göteborg, Gais and Örgryte IS.",
+                    "Text2": "National arena for Sweden’s women’s football team. Image source: Wikimedia, Averater",
+                    "Datasource": "",
+                    "Legend1": "GamlaUllevi1024x1024",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.70627109159362, 11.98015516755893","Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Ullevi stadium",
+                    "Text1": "Ullevi stadium\n\nUllevi Stadium, commonly called Nya Ullevi, is the Nordic region’s largest events arena. Inaugurated in 1958, when Sweden held the football world cup.",
+                    "Text2": "Audience record: 70,144 people, at Håkan Hellström’s second concert in 2016. Image source: Wikimedia, Andreas Palmnäs",
+                    "Datasource": "",
+                    "Legend1": "NyaUllevi1024x1024",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.70588870983945, 11.987333099545175","Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Karlatornet",
+                    "Text1": "Karlatornet\n\nKarlatornet is under construction and is expected to be completed by 2023. The planned height is 245 metres, which will make it the tallest building in the Nordic region. Image source: Wikimedia, Vogler",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "Karlatornet1024x1024",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.70982373885467, 11.939368115627385","Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Hisingsbron bridge",
+                    "Text1": "Hisingsbron bridge\n\nOpened in summer 2021 and one of Gothenburg’s newest landmarks. It unites the two halves of the city across the Göta Älv river. The bridge is a steel and concrete vertical-lift bridge.",
+                    "Text2": "When closed, it has a vertical clearance height of 12 metres and, when open, 28 metres. The four pylons are around 35 metres in height. Image source: Alexander Ljungqvist/Fastighetskontoret City of Gothenburg, 2021.",
+                    "Datasource": "",
+                    "Legend1": "1024x1024hisingsbron_alexander-ljungqvi",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.71489479272818, 11.967907363902109","Filenames": "CleanColor/White"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,92 @@
+{
+    "Title": "Havsnivåhöjning",
+    "Sections": [
+        {
+            "Label1": "Historiska kartor",
+            "SectionObject": [
+                {
+                    "Title": "År 1809",
+                    "Text1": "Historiska kartor\n\nGöteborg är byggt på vatten – Göta älvs utbredning år 1809",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "",
+                    "Legend2": "",
+                    "Default": true,
+                    "Idle": false,
+                    "Filenames": "No-Data"
+                },
+                {
+                    "Title": "År 1910",
+                    "Text1": "Historiska kartor\n\nGöteborg är byggt på vatten – Göta älvs utbredning år 1910",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "No-Data",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "No-Data"
+                },
+                {
+                    "Title": "År 1921",
+                    "Text1": "Historiska kartor\n\nGöteborg är byggt på vatten – Göta älvs utbredning år 1921",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "No-Data"
+                },
+                {
+                    "Title": "År 2011",
+                    "Text1": "Historiska kartor\n\nGöteborg är byggt på vatten – Göta älvs utbredning år 2011",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "No-Data"
+                }
+            ]
+        },
+        {
+            "Label1": "Scenario högflöde",
+            "SectionObject": [
+                {
+                    "Title": "År 2014",
+                    "Text1": "Havsnivå – dagens situation",
+                    "Text2": "",
+                    "Datasource": "",
+                    "Legend1": "havshöjning_2014_HR",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "SeaLevelRise/Year 2014"
+                },
+                {
+                    "Title": "År 2070",
+                    "Text1": "Havsnivå – framtidsscenario",
+                    "Text2": "Havsnivån förväntas stiga och Göta älv breder ut sig - förväntat läge år 2070",
+                    "Datasource": "",
+                    "Legend1": "havsnivåhöjning_2070_HR",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "SeaLevelRise/Year 2070"
+                },
+                {
+                    "Title": "År 2100",
+                    "Text1": "Havsnivå – framtidsscenario",
+                    "Text2": "Simulerat för den högsta havsnivån under ett dygn år 2100. Beräkningen gjord för uppehållsväder. Flödet i tillrinnande vattendrag till Göta Älv är satt till dess högflöde (HQ). ",
+                    "Datasource": "",
+                    "Legend1": "havsnivåhöjning_2100_HR",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": true,
+                    "Filenames": "SeaLevelRise/Year 2100"
+                }
+            ]
+        }
+    ]
+}
