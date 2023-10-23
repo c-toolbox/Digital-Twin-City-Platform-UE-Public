@@ -22,11 +22,16 @@ The GeoReferencing plugin from UE 4.27 is currently used in the Digital Twin.
 # Roadmap
 
 ```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
+gantt
+    title Roadmap
+    dateFormat  YYYY-MM-DD
+    section Section
+    Refactor raster handling :a1, 2023-11-01, 30d
+    Another task     :after a1  , 20d
+    section Another
+    Task in sec      :2023-11-01  , 12d
+    another task      : 24d
+
 ```
 
 # Third Party
