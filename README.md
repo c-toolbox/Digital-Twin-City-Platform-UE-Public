@@ -28,8 +28,9 @@ gantt
     section Section
     Datahandling             :a1, 2023-10-23, 30d
     Installation script      :after a1  , 20d
-    section Low prio         :a2, 2023-11-15, 30d
-    Improve Dynamic visuals  :after a2, 15d
+    section Low prio         
+    Improve Dynamic visuals  :a2, 2023-11-15, 30d
+    Handle mediadataset
 ```
 
 # Third Party
