@@ -24,12 +24,12 @@ void FZeroMqWorker::HandlePublicTraffic(const std::string &Message_Str) const
 	const auto Res = FJsonSerializer::Deserialize(JsonReader, JsonObject);
 	
 	if (Res) {
-		const auto Id	       = JsonObject->GetStringField("id"); 
+		const auto Id	    = JsonObject->GetStringField("id"); 
 		const auto Heading   = JsonObject->GetNumberField("heading");
 		const auto Latitude  = JsonObject->GetNumberField("latitude");
 		const auto Longitude = JsonObject->GetNumberField("longitude");
 		const auto Type      = JsonObject->GetStringField("type");
-		const auto Color_String    = JsonObject->GetStringField("color");
+		const auto Color_String     = JsonObject->GetStringField("color");
 		const auto Status_String    = JsonObject->GetStringField("Status");
 
 		int64 Time;
@@ -57,7 +57,7 @@ void FZeroMqWorker::HandleImageOther(const std::string& Message_Str) const
 	const auto Res = FJsonSerializer::Deserialize(JsonReader, JsonObject);
 	
 	if (Res) {
-		const auto Id		   = JsonObject->GetStringField("id"); 
+		const auto Id		= JsonObject->GetStringField("id"); 
 		const auto Heading   = JsonObject->GetNumberField("heading");
 		const auto Latitude  = JsonObject->GetNumberField("latitude");
 		const auto Longitude = JsonObject->GetNumberField("longitude");
@@ -120,11 +120,11 @@ bool FZeroMqWorker::Init() {
 }
 
 void FZeroMqWorker::Stop() {
-	UE_LOG(LogTemp, Warning, TEXT("My custom thread is stopping!"));
+	UE_LOG(LogTemp, Warning, TEXT("FZeroMqWorker thread is stopping!"));
 	Running = false;
 }
 void FZeroMqWorker::Exit() {
-	UE_LOG(LogTemp, Warning, TEXT("My custom thread is Exiting!"));
+	UE_LOG(LogTemp, Warning, TEXT("FZeroMqWorker thread is Exiting!"));
 }
 
 

@@ -21,7 +21,10 @@ public:
   virtual void OnConstruction(const FTransform& Transform) override;
 
   void BeginPlay() override;
+  UFUNCTION(BlueprintCallable, Category = "DigitalTwin|RasterActor")
   void SetDecalTexture(class UTexture* Texture);
+
+  UFUNCTION(BlueprintCallable, Category = "DigitalTwin|RasterActor")
   void SetExtent(const FExtent& NewExtent);
 
 #if WITH_EDITOR
@@ -45,7 +48,7 @@ public:
 
 protected:
   UPROPERTY(EditAnywhere)
-    double XExtent = 10.0;
+    double XExtent = 100.0;
   UPROPERTY(EditAnywhere)
-    double YExtent = 10.0;
+    double YExtent = 100.0;
 };

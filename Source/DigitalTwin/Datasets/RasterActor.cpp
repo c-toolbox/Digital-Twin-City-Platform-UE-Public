@@ -58,7 +58,7 @@ void ARasterActor::SetExtent(const FExtent& NewExtent)
     FCartesianCoordinates ExtentCenter(NewExtent.Min.X + XExtent / 2.0, NewExtent.Min.Y + YExtent / 2.0, 0);
     FGeographicCoordinates Coords;
     GeoRefSystem->ProjectedToGeographic(ExtentCenter, Coords);
-    Wgs84Latitude = Coords.Latitude;
+    Wgs84Latitude  = Coords.Latitude;
     Wgs84Longitude = Coords.Longitude;
     DecalComponent->DecalSize = FVector(DECAL_HEIGHT, YExtent / 2.0,XExtent / 2.0);
     DecalComponent->RecreateRenderState_Concurrent();

@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Subsystems/WorldSubsystem.h"
 #include "DatasetCatalog.h"
+#include "RasterActor.h"
 #include "DatasetSubsystem.generated.h"
 
 
@@ -21,11 +22,11 @@ UCLASS()
 class DIGITALTWIN_API UDatasetSubsystem : public UWorldSubsystem
 {
   GENERATED_BODY()
-
+  
 public:
 
-  void Initialize(FSubsystemCollectionBase& Collection) override;
-  void Deinitialize() override;
+  virtual void Initialize(FSubsystemCollectionBase& Collection) override;
+  virtual void Deinitialize() override;
 
   UFUNCTION(BlueprintCallable, Category = "DigitalTwin|Datasets")
     void RegisterRasterDataset(UDataTable* RasterData);
@@ -33,10 +34,13 @@ public:
   UFUNCTION(BlueprintCallable, Category = "DigitalTwin|Datasets")
     void RegisterMovieDataset(UDataTable* MovieData);
 
-  void RegisterCatalog(class UDatasetCatalog* Catalog);
+    void RegisterCatalog(class UDatasetCatalog* Catalog);
 
   UFUNCTION(BlueprintCallable, Category = "DigitalTwin|Datasets")
     void ActivateDataset(const FString& CatalogName, const FString& DatasetName);
+
+  UFUNCTION(BlueprintCallable, Category = "DigitalTwin|Datasets")
+    UTexture2D* ActivateDataset2(const FString& CatalogName, const FString& DatasetName);
 
   UFUNCTION(BlueprintCallable, Category = "DigitalTwin|Datasets")
     void DisableAllDatasets();
@@ -56,6 +60,13 @@ public:
 
 private:
 
+
+  bool CheckDatasetCatalog(UDatasetCatalog* Catalog);
+  
+  
   UPROPERTY()
     TArray<class UDatasetCatalog*> DatasetCatalogs;
+
+  UPROPERTY()
+    ARasterActor* RasterActor;
 };

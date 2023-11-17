@@ -2,48 +2,43 @@
 
 #include "CoreMinimal.h"
 #include "HAL/Runnable.h"
-#include "Subsystems/WorldSubsystem.h"
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "Subsystems/SubsystemCollection.h"
+#include "Subsystems/WorldSubsystem.h"
 #include "ZeroMqWorker.h"
+#include "BlocksWorker.h"
 #include "ZeroMQCommunication.generated.h"
 
-
 UCLASS()
-class DIGITALTWIN_API UZeroMqCommunication :  public UTickableWorldSubsystem {
-	GENERATED_BODY()
-	DECLARE_MULTICAST_DELEGATE_OneParam(FTrafficUpdate2,const FTrafficData &);
+class DIGITALTWIN_API UZeroMqCommunication : public UTickableWorldSubsystem {
+  GENERATED_BODY()
+  DECLARE_MULTICAST_DELEGATE_OneParam(FTrafficUpdate2, const FTrafficData &);
+
 public:
-	
-	FTrafficUpdate2 OnTrafficUpdate2;
-	virtual void Initialize(FSubsystemCollectionBase& Collection) override;
-	virtual void Deinitialize() override;
-	virtual void Tick(float DeltaTime) override;
-	virtual TStatId GetStatId() const override;
-	
-	UFUNCTION(BlueprintCallable)
-	void StartWorker();
+  FTrafficUpdate2 OnTrafficUpdate2;
+  virtual void Initialize(FSubsystemCollectionBase &Collection) override;
+  virtual void Deinitialize() override;
+  virtual void Tick(float DeltaTime) override;
+  virtual TStatId GetStatId() const override;
 
-	UFUNCTION(BlueprintCallable)
-	void StartWorker2(FString WorkerName, FString Interface);
-	
-	UFUNCTION(BlueprintCallable)
-	void StopWorker(const FString &WorkerName) const;
+  UFUNCTION(BlueprintCallable)
+  void StartWorker();
 
-	UFUNCTION(BlueprintCallable)
-	void StopWorkers();
+  UFUNCTION(BlueprintCallable)
+  void StartWorker2(FString WorkerName, FString Interface);
 
-	UFUNCTION(BlueprintCallable)
-	bool SaveStuff(UObject* ObjectToSave);
+  UFUNCTION(BlueprintCallable)
+  void StopWorker(const FString &WorkerName) const;
 
-#if WITH_EDITOR
-	void LoadTexture(FString &Path);
-	void RemoveTexture(FString &Path);	
-#endif
-	
+  UFUNCTION(BlueprintCallable)
+  void StopWorkers();
+
+  UFUNCTION(BlueprintCallable)
+  void SendRequest(const FString WorkerName);
+
 private:
-	
-	TMap<FString,FZeroMqWorker*> Workers;
-	TSharedPtr<TQueue<FTrafficData>> Worker_Queue;
-
+  // TODO Refactor this .... !
+  TMap<FString, FZeroMqWorker *>   Workers;
+  TMap<FString, FBlocksWorker *>   TempWorkers;
+  TSharedPtr<TQueue<FTrafficData>> Worker_Queue;
 };
