@@ -85,8 +85,8 @@ void AEastSwedenTraffic::Tick(float DeltaTime) {
 void AEastSwedenTraffic::FromWgsToProjectionCoordinates(const FVector& WgsPosition, AGeoReferencingSystem* Subsystem, FVector& EngineCoordinates)
 {
 	FGeographicCoordinates Geographic;
-	Geographic.Latitude  = WgsPosition.Y;
-	Geographic.Longitude = WgsPosition.Z;
+	Geographic.Latitude  = WgsPosition.Z;
+	Geographic.Longitude = WgsPosition.Y;
 	Geographic.Altitude  = 50.0f;
 		
 	FCartesianCoordinates Cartesian_Coordinates;
@@ -111,10 +111,10 @@ void AEastSwedenTraffic::ToWgsFromProjectionCoordinates(const FVector& EngineCoo
 	FGeographicCoordinates WgsCoord;
 	Subsystem->ProjectedToGeographic(ProjectedCoordinates,WgsCoord);
 
-	WgsPosition.Y = WgsCoord.Latitude;
-	WgsPosition.Z = WgsCoord.Longitude;
+	WgsPosition.Z = WgsCoord.Latitude;
+	WgsPosition.Y = WgsCoord.Longitude;
 	//TODO Handle this better later !!
-	WgsPosition.X = 50.f;
+	WgsPosition.X	 = 50.f;
 }
 
 void AEastSwedenTraffic::CreateVisualEntity(const FTrafficData& Data, const FVector &EngineCoordinates, FVisualTraffic& Entity)
@@ -132,18 +132,6 @@ void AEastSwedenTraffic::CreateVisualEntity(const FTrafficData& Data, const FVec
 
 void AEastSwedenTraffic::UpdateVisualEntity(const FTrafficData& Data, const FVector &EngineCoordinates, FVisualTraffic& Update_Candidate)
 {
-	if(Update_Candidate.Positions.Num() < 4)
-	{
-		Update_Candidate.Positions.Push(EngineCoordinates);
-		UE_LOG(LogTemp, Log, TEXT("UpdateVisualEntity : Update_Candidate.Positions Size %d"),Update_Candidate.Positions.Num());
-	}
-
-	if(Update_Candidate.Positions.Num() == 4)
-	{
-		Update_Candidate.Positions.RemoveAt(3);
-		Update_Candidate.Positions.Push(EngineCoordinates);
-		UE_LOG(LogTemp, Log, TEXT("UpdateVisualEntity : Update_Candidate.Positions Size %d"),Update_Candidate.Positions.Num());
-	}
 	UE_LOG(LogTemp, Log, TEXT("UpdateVisualEntity : Update_Candidate.Positions Size %d"),Update_Candidate.Positions.Num());
 	const auto Oldpos = Update_Candidate.NewPosition;
 	const auto OldTime = Update_Candidate.NewTimeStamp;

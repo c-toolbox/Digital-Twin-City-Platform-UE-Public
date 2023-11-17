@@ -25,14 +25,14 @@ void FZeroMqWorker::HandlePublicTraffic(const std::string &Message_Str) const
 	
 	if (Res) {
 		const auto Id	    = JsonObject->GetStringField("id"); 
-		const auto Heading   = JsonObject->GetNumberField("heading");
-		const auto Latitude  = JsonObject->GetNumberField("latitude");
-		const auto Longitude = JsonObject->GetNumberField("longitude");
-		const auto Type      = JsonObject->GetStringField("type");
+		const auto Heading    = JsonObject->GetNumberField("heading");
+		const auto Latitude   = JsonObject->GetNumberField("latitude");
+		const auto Longitude  = JsonObject->GetNumberField("longitude");
+		const auto Type       = JsonObject->GetStringField("type");
 		const auto Color_String     = JsonObject->GetStringField("color");
 		const auto Status_String    = JsonObject->GetStringField("Status");
 
-		int64 Time;
+		int64 Time = 0;
 		if(JsonObject->TryGetNumberField("time",Time)) {
 			Time = FDateTime::Now().ToUnixTimestamp();
 		}
