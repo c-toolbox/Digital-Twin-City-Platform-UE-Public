@@ -9,18 +9,19 @@
 
 #include "Metadata.generated.h"
 
-USTRUCT()
+USTRUCT(BlueprintType)
 struct FPoint2D
 {
   GENERATED_BODY()
 public:
+  
   UPROPERTY(EditAnywhere)
     double X;
   UPROPERTY(EditAnywhere)
     double Y;
 };
 
-USTRUCT()
+USTRUCT(BlueprintType)
 struct FExtent
 {
   GENERATED_BODY()

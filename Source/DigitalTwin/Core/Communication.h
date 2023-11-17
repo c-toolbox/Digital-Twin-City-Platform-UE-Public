@@ -21,6 +21,7 @@
 #include "MessageEndpoint.h"
 #include "VectorTypes.h"
 #include "../DatasetUtils/ScenarioMetadata.h"
+#include "DigitalTwin/Datasets/ScenarioSubsystem.h"
 #include "Communication.generated.h"
 
 /**
@@ -108,6 +109,8 @@ struct FClientGetAllScenarios
 public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Communication)
     FString Info;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Communication)
+    Language Language;
 };
 
 /**
@@ -134,17 +137,13 @@ USTRUCT(BlueprintType, Category = Communication)
 struct FServerSendAllDatasets
 {
     GENERATED_BODY()
-
+    
 public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Communication)
     TArray<FString> DataSets;
 };
 
-/**
- *
- *
- *
- */
+
 USTRUCT(BlueprintType, Category = Communication)
 struct FServerSendAllScenarios
 {
@@ -154,11 +153,6 @@ public:
     TArray<FScenario> Scenarios;
 };
 
-/**
- *
- *
- *
- */
 UENUM(BlueprintType, Category = Communication)
 enum MapMarkerRequestType
 {
@@ -167,11 +161,6 @@ enum MapMarkerRequestType
     Delete  UMETA(DisplayName = "Delete"),
 };
 
-/**
- *
- *
- *
- */
 USTRUCT(BlueprintType, Category = Communication)
 struct FMapMarkerMessage
 {
@@ -194,11 +183,6 @@ public:
     bool Enabled;
 };
 
-/**
- *
- *
- *
- */
 UENUM(BlueprintType, Category = Communication)
 enum SkyLightRequestType {
     Day UMETA(DisplayName = "Day"),
@@ -206,10 +190,6 @@ enum SkyLightRequestType {
     Night UMETA(DisplayName = "Night"),
 };
 
-/**
- *
- *
- */
 USTRUCT(BlueprintType, Category = Communication)
 struct FSkyLightRequest
 {
@@ -231,11 +211,6 @@ public:
 
 };
 
-
-/**
- *
- *
- */
 USTRUCT(BlueprintType, Category = Communication)
 struct FGenericCommand
 {
@@ -362,12 +337,8 @@ protected:
     void HandleClientGenericCommand(const FGenericCommand & Message,
                               const TSharedRef<IMessageContext, ESPMode::ThreadSafe> & Context);
     
-    
     TSharedPtr<FMessageEndpoint, ESPMode::ThreadSafe> MyEndpoint;
 };
-
-
-
 
 /**
  * Communication Client
@@ -399,7 +370,7 @@ public:
 
     /// Broadcast request for all scenarios
     UFUNCTION(BlueprintCallable, Category = Communication)
-    void SendClientGetAllScenarios(FString Info);
+    void SendClientGetAllScenarios(FClientGetAllScenarios Info);
     
     /// Broadcast request for activation of datasets
     UFUNCTION(BlueprintCallable, Category = Communication)

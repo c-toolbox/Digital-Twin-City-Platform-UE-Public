@@ -9,9 +9,10 @@
 #include "RasterActor.h"
 #include "MediaDataset.h"
 
-#include "Engine/TextRenderActor.h" 
-#include "Components/TextRenderComponent.h" 
-#include "Kismet/GameplayStatics.h" 
+#include "Components/TextRenderComponent.h"
+#include "Engine/TextRenderActor.h"
+#include "Kismet/GameplayStatics.h"
+
 
 
 FString FDatasetPaths::DatasetRootDir() {
@@ -40,9 +41,11 @@ void UDatasetSubsystem::Initialize(FSubsystemCollectionBase& Collection)
   {
     IFileManager& FileManager = IFileManager::Get();
     FString DatasetRootDir = FDatasetPaths::DatasetRootDir();
+    UE_LOG(LogTemp, Warning, TEXT("Dataset root dir: %s"), *DatasetRootDir);
     TArray<FString> CatalogDirectories =  GetDirectories(FileManager, DatasetRootDir);
     for (const FString& CatalogName : CatalogDirectories) {
       FString CatalogDir = DatasetRootDir / CatalogName;
+      UE_LOG(LogTemp, Warning, TEXT("Dataset root dir: %s"), *DatasetRootDir);
       UDatasetCatalog* Catalog = NewObject<UDatasetCatalog>(this);
       Catalog->InitializeCatalog(FileManager, CatalogDir);
       DatasetCatalogs.Push(Catalog);
@@ -122,6 +125,65 @@ void UDatasetSubsystem::ActivateDataset(const FString& CatalogName, const FStrin
   }
 }
 
+UTexture2D* UDatasetSubsystem::ActivateDataset2(const FString &CatalogName,
+                                         const FString &DatasetName) {
+  
+  // 1. Find folder/catalog ...
+  const auto FolderName = FDatasetPaths::DatasetRootDir() + "/" + CatalogName;
+  if (FPaths::DirectoryExists(FolderName)) {
+    UE_LOG(LogTemp, Warning, TEXT("Catalog exists : %s "), *CatalogName);
+  } else {
+    UE_LOG(LogTemp, Warning, TEXT("Catalog dosen`t exists !"));
+    return nullptr;
+  }
+
+  // 2. Check if images exists ...
+  const auto FileName = FolderName + "/" + DatasetName;
+  if(FPaths::FileExists(FileName)) {
+    UE_LOG(LogTemp, Warning, TEXT("File %s ,exists i Filedatabase !"), *DatasetName);
+  } else {
+    UE_LOG(LogTemp, Warning, TEXT("File dosen`t exists !"));
+    return nullptr;
+  }
+  
+  // 3. Read image and create texture !
+  // 4. Read meta data
+  
+  FImageData ImageData;
+  ImageData.ReadImageData(FileName);
+
+  const auto RasterTexture = UTexture2D::CreateTransient(ImageData.Width, ImageData.Height, ImageData.PixelFormat);
+  const auto Mip = &RasterTexture->PlatformData->Mips[0];
+ 
+  void* TextureData = RasterTexture->PlatformData->Mips[0].BulkData.Lock(LOCK_READ_WRITE);
+  FMemory::Memcpy(TextureData, ImageData.RawPixelData.GetData(), ImageData.RawPixelData.Num());
+  RasterTexture->PlatformData->Mips[0].BulkData.Unlock();  
+  RasterTexture->UpdateResource();
+
+  //FEvent Extent;
+  
+  RasterActor = GetWorld()->SpawnActor<ARasterActor>();
+
+  RasterActor->DatasetName = DatasetName;
+  RasterActor->SetDecalTexture(RasterTexture);
+  //RasterActor->SetExtent(Extent);
+
+  
+  return RasterTexture;
+  
+}
+
+bool UDatasetSubsystem::CheckDatasetCatalog(UDatasetCatalog* Catalog) {
+  for(const auto c : DatasetCatalogs) {
+    //
+    if(Catalog->GetCatalogName() == c->GetCatalogName()) {
+       return true;
+    }
+  }
+  return false;
+}
+
+
 void UDatasetSubsystem::DisableAllDatasets()
 {
   for (auto& Catalog : DatasetCatalogs) {
@@ -129,11 +191,9 @@ void UDatasetSubsystem::DisableAllDatasets()
   }
 }
 
-
-TArray<FString> UDatasetSubsystem::GetCatalogNames() const
-{
+TArray<FString> UDatasetSubsystem::GetCatalogNames() const {
   TArray<FString> CatalogNames;
-  for (const auto& Catalog : DatasetCatalogs) {
+  for (const auto &Catalog : DatasetCatalogs) {
     CatalogNames.AddUnique(Catalog->GetCatalogName());
   }
   return CatalogNames;

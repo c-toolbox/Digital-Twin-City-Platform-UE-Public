@@ -26,7 +26,6 @@ struct DIGITALTWIN_API FTrafficData {
 };
 
 //TODO
-
 class DIGITALTWIN_API FZeroMqWorker final : public FRunnable {
 public:
 	FZeroMqWorker(const TSharedPtr<TQueue<FTrafficData>>& Q, const FString &IP, const FString &Topic);

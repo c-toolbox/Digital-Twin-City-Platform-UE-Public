@@ -8,7 +8,6 @@
 #include "Communication.h"
 #include "../Datasets/ScenarioSubsystem.h"
 #include "MessageEndpointBuilder.h"
-#include <zmq.hpp>
 
 // --------------------------------------------------------------------------------
 //   Server Section
@@ -21,10 +20,6 @@ void UCommunicationServer::CreateCommunicationServer(UCommunicationServer * & Se
 
 void UCommunicationServer::StartupNetwork()
 {
-    int major, minor, patch = 0;
-    zmq::version(&major,&minor,&patch);
-	
-    UE_LOG(LogTemp, Warning, TEXT("ZeroMQ version: v%d.%d.%d"), major, minor, patch);
     MyEndpoint = FMessageEndpoint::Builder("DigitalTwinServer")
         // Attach message handler(s)
         .Handling<FClientAlivePing>(this, &UCommunicationServer::HandleClientAlivePing)
@@ -47,10 +42,7 @@ void UCommunicationServer::StartupNetwork()
         MyEndpoint->Subscribe<FScenarioSubSection>();
         MyEndpoint->Subscribe<FSkyLightRequest>();
         MyEndpoint->Subscribe<FGenericCommand>();
-
-        zmq::version(&major,&minor,&patch);
-	
-        UE_LOG(LogTemp, Warning, TEXT("ZeroMQ version: v%d.%d.%d"), major, minor, patch);
+        
     }
     else {
         UE_LOG(LogTemp, Error, TEXT("Failed to build end-point"));
@@ -84,14 +76,14 @@ void UCommunicationServer::HandleClientGetAllDatasets(const FClientGetAllDataset
                         const TSharedRef<IMessageContext, ESPMode::ThreadSafe> & Context)
 {
     UE_LOG(LogTemp, Log, TEXT("UCommunicationServer: Received HandleClienGetAllDatasets message s%"),*Message.Info);
-    
-   OnClientGetAllDatasetsDelegate.Broadcast(Message);
+    OnClientGetAllDatasetsDelegate.Broadcast(Message);
 }
 
 void UCommunicationServer::HandleClientGetAllScenarios(const FClientGetAllScenarios& Message,
     const TSharedRef<IMessageContext, ESPMode::ThreadSafe>& Context)
 {
-    UE_LOG(LogTemp, Log, TEXT("UCommunicationServer: Received HandleClienGetAllDatasets message s%"),*Message.Info);
+    UE_LOG(LogTemp, Log, TEXT("UCommunicationServer: Received HandleClientGetAllScenarios message s%"),*Message.Info);
+    
     OnClientGetAllScenariosDelegate.Broadcast(Message);
 }
 
@@ -178,10 +170,6 @@ void UCommunicationClient::CreateCommunicationClient(UCommunicationClient * & Cl
 
 void UCommunicationClient::StartupNetwork()
 {
-    int major, minor, patch = 0;
-    zmq::version(&major,&minor,&patch);
-	
-    UE_LOG(LogTemp, Warning, TEXT("ZeroMQ version: v%d.%d.%d"), major, minor, patch);
     MyEndpoint = FMessageEndpoint::Builder("DigitalTwinClient")
         // Attach message handlers
         .Handling<FServerAlivePing>(this, &UCommunicationClient::HandleServerAlivePing)
@@ -221,7 +209,7 @@ void UCommunicationClient::SendClientGetAllDataSets(FString Info)
     }
 }
 
-void UCommunicationClient::SendClientGetAllScenarios(FString Info)
+void UCommunicationClient::SendClientGetAllScenarios(FClientGetAllScenarios Info)
 {
     if (MyEndpoint.IsValid())
     {
@@ -291,5 +279,10 @@ void UCommunicationClient::HandleServerSendsAllDatasets(const FServerSendAllData
 void UCommunicationClient::HandleServerSendsAllScenarios(const FServerSendAllScenarios& Message,
     const TSharedRef<IMessageContext, ESPMode::ThreadSafe>& Context)
 {
+    auto ScenarioInfos = Message.Scenarios;
+    for(const auto& ScenarioInfo : ScenarioInfos ) {
+        UE_LOG(LogTemp, Log, TEXT("UCommunicationClient: Received SendsAllScenarios Dataset Info : %s"),*ScenarioInfo.Title);
+        
+    }
     OnServerSendAllScenarios.Broadcast(Message);
 }

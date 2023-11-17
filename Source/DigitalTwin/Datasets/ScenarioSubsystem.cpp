@@ -27,11 +27,14 @@ namespace Utils
 			}
 			SubSection.FilenameArray = FilenameArray;
 			SubSection.Filenames = SectionsAsObject->GetStringField("Filenames");
+
 			//TODO Remove this
 			//SubSection.Comment = SectionsAsObject->GetStringField("Comment");
+
 			//TODO Handle this in blueprint
 			SubSection.Text1 = SectionsAsObject->GetStringField("Text1");
 			SubSection.Text2 = SectionsAsObject->GetStringField("Text2");
+
 			//TODO Handle this in blueprint
 			SubSection.Legend1 = SectionsAsObject->GetStringField("Legend1");
 			SubSection.Legend2 = SectionsAsObject->GetStringField("Legend2");
@@ -131,10 +134,15 @@ void UScenarioSubsystem::ParseScenarios(FString DatasetRootDir, TArray<FString> 
 void UScenarioSubsystem::Initialize(FSubsystemCollectionBase& Collection)
 {
 	Super::Initialize(Collection);
+	
+}
+
+void UScenarioSubsystem::SetupScenarios()
+{
 	FString ScenarioRootDir = FPaths::ProjectDir() + TEXT("Scenarios");
 	if (!FPaths::DirectoryExists(ScenarioRootDir)) {
-	  UE_LOG(LogTemp, Warning, TEXT("Could not find Scenario root dir: %s, creating it..."), *ScenarioRootDir);
-	  IFileManager::Get().MakeDirectory(*ScenarioRootDir);
+		UE_LOG(LogTemp, Warning, TEXT("Could not find Scenario root dir: %s, creating it..."), *ScenarioRootDir);
+		IFileManager::Get().MakeDirectory(*ScenarioRootDir);
 	}
 
 	UWorld* World = GetWorld();
@@ -160,14 +168,22 @@ void UScenarioSubsystem::Initialize(FSubsystemCollectionBase& Collection)
 	}
 }
 
+void UScenarioSubsystem::Reload()
+{
+	SV_Scenarios_.Empty();
+	EN_Scenarios_.Empty();
+	SetupScenarios();
+}
+
+
 void UScenarioSubsystem::Deinitialize()
 {
 	Super::Deinitialize();
-
 }
 
 TArray<FScenario> UScenarioSubsystem::GetScenarios(Language Lang)
 {
+	Reload();
 	switch (Lang) {
 	case Language::English: {
 		return EN_Scenarios_;
