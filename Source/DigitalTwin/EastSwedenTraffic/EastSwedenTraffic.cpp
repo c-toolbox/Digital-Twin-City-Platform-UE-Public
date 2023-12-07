@@ -18,7 +18,7 @@ void AEastSwedenTraffic::BeginPlay() {
 	Super::BeginPlay();
 	UZeroMqCommunication* Zeromq_Subsystem = GetWorld()->GetSubsystem<UZeroMqCommunication>();
 	if (Zeromq_Subsystem != nullptr) {
-		Zeromq_Subsystem->OnTrafficUpdate2.AddUObject(this, &AEastSwedenTraffic::Update);
+		Zeromq_Subsystem->OnTrafficUpdate.AddUObject(this, &AEastSwedenTraffic::Update);
 	}
 }
 

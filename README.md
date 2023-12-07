@@ -2,10 +2,19 @@
 
 **Version:** 1.0  
 **Tech lead:** Erik Junholm  
+**Product Owner** Erik Junholm
 **Developers:** David Beuger, Anders Kettisen  
 **Hall of Fame:** Mikael Pettersson
 
 This is the home of the Digital Twin project.
+
+# Specification
+- Coordinate system : SWEREF99TM 16 30 00
+- Extent Nkpg
+  - Min X: 129411,400, Y: 6495015,262 
+  - Max X: 134211.400, Y: 6498915,262
+  
+- Scale : 1:1500
 
 ## Build & Run
 

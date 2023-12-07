@@ -83,7 +83,10 @@ uint32 FZeroMqWorker::Run() {
 	
 	Socket = new zmq::socket_t(Ctx, ZMQ_SUB);
 	Socket->set(zmq::sockopt::rcvtimeo, TIMEOUT_TIME);
+
 	Socket->connect(std::string(TCHAR_TO_UTF8(*IP_Interface)));
+
+	
 	
 	SetUpTopics();
 	
