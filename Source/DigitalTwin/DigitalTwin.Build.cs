@@ -21,7 +21,8 @@ public class DigitalTwin : ModuleRules
             "GeometricObjects",
             "GeoReferencing",
             "RemoteControl",
-            "ZeroMQ"
+            "ZeroMQ",
+            "WebSockets"
           
         });
 

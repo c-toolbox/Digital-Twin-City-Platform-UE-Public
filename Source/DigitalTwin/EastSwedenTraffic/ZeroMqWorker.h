@@ -2,30 +2,11 @@
 #include <zmq.hpp>
 #include "CoreMinimal.h"
 #include "HAL/Runnable.h"
-#include "ZeroMqWorker.generated.h"
+#include "WebSocketsModule.h" // Module definition
+#include "IWebSocket.h"       // Socket definition
+#include "Utils.h"
 
-USTRUCT(BlueprintType)
-struct DIGITALTWIN_API FTrafficData {
-	GENERATED_USTRUCT_BODY()
-	UPROPERTY(BlueprintReadWrite)
-		FString Id;
-	UPROPERTY(BlueprintReadWrite)
-		FString Type;
-	UPROPERTY(BlueprintReadWrite)
-		int32 TimeStamp;
-	UPROPERTY(BlueprintReadWrite)
-		FVector Position;
-	UPROPERTY(BlueprintReadWrite)
-		float Heading;
-	UPROPERTY(BlueprintReadWrite)
-		FColor Color;
-	UPROPERTY(BlueprintReadWrite)
-		float Radius;
-	UPROPERTY(BlueprintReadWrite)
-		FString Status;
-};
 
-//TODO
 class DIGITALTWIN_API FZeroMqWorker final : public FRunnable {
 public:
 	FZeroMqWorker(const TSharedPtr<TQueue<FTrafficData>>& Q, const FString &IP, const FString &Topic);
@@ -55,6 +36,9 @@ private:
 	TSharedPtr<TQueue<FTrafficData>> Queue;
 	TArray<FString> TopicStrings;
 };
+
+
+
 
 
 

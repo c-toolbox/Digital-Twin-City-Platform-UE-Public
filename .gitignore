@@ -16,3 +16,7 @@ Build
 *.xcworkspace
 SP_Textures
 .sp
+Datasets/Test
+Scenarios
+qodana.yaml
+DigitalTwin.sln.DotSettings.user
