@@ -22,7 +22,7 @@ public:
 
   void BeginPlay() override;
   UFUNCTION(BlueprintCallable, Category = "DigitalTwin|RasterActor")
-  void SetDecalTexture(class UTexture* Texture);
+  void SetDecalTexture(class UTexture* Texture,int32 SortOrder);
 
   UFUNCTION(BlueprintCallable, Category = "DigitalTwin|RasterActor")
   void SetExtent(const FExtent& NewExtent);

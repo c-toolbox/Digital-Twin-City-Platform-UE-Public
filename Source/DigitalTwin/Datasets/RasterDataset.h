@@ -50,7 +50,7 @@ class DIGITALTWIN_API URasterDataset : public UDataset
 {
   GENERATED_BODY()
 public:
-  virtual void ActivateDataset(UWorld* World) override;
+  virtual void ActivateDataset(UWorld* World,int32 SortOrder) override;
   virtual void ToggleDataset(UWorld* World) override;
   virtual void DisableDataset(UWorld* World) override;
 
