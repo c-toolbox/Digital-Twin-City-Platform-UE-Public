@@ -9,6 +9,10 @@
 #include "Utils.h"
 #include "WebSocketWorker.h"
 #include "ZeroMqWorker.h"
+#include "BlocksWorker.h"
+#include "Utils.h"
+#include "WebSocketWorker.h"
+#include "ZeroMqWorker.h"
 #include "ZeroMQCommunication.generated.h"
 
 // #TODO Move websocket stuff to other Subsystem  
@@ -48,12 +52,10 @@ public:
   UFUNCTION(BlueprintCallable)
   void StartWorker(FString WorkerName, FString Interface);
 
+  
   UFUNCTION(BlueprintCallable)
   void StartWebSocketWorker(FString WorkerName, FString Interface);
-
-  UFUNCTION(BlueprintCallable)
-  void StopWorker(const FString &WorkerName) const;
-
+  
   UFUNCTION(BlueprintCallable)
   void StopWorkers();
 

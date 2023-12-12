@@ -87,7 +87,7 @@ void FImageData::ParsePNG(IImageWrapperModule& ImageWrapperModule, const TArray6
   }
 }
 
-void URasterDataset::ActivateDataset(UWorld* World)
+void URasterDataset::ActivateDataset(UWorld* World,int32 SortOrder)
 {
   if (!RasterActor) {
     const FExtent& Extent = MetaData.Extent;
@@ -99,7 +99,7 @@ void URasterDataset::ActivateDataset(UWorld* World)
       RasterActor->SetActorLabel(DatasetName);
 #endif
       RasterActor->DatasetName = DatasetName;
-      RasterActor->SetDecalTexture(RasterTexture);
+      RasterActor->SetDecalTexture(RasterTexture,SortOrder);
       RasterActor->SetExtent(Extent);
     }
   }
@@ -108,7 +108,7 @@ void URasterDataset::ActivateDataset(UWorld* World)
 void URasterDataset::ToggleDataset(UWorld* World)
 {
   if (!RasterActor) {
-    ActivateDataset(World);
+    ActivateDataset(World,0);
   }
   else {
     RasterActor->Destroy();

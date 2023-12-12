@@ -33,7 +33,7 @@ public:
   */
   bool ContainsDataset(const FString& DatasetName) const;
 
-  bool ActivateDataset(UWorld* World, const FString& DatasetName);
+  bool ActivateDataset(UWorld* World, const FString& DatasetName, int32 SortOrder);
 
   bool ToggleDataset(UWorld* World, const FString& DatasetName);
 

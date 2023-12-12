@@ -37,7 +37,7 @@ public:
     void RegisterCatalog(class UDatasetCatalog* Catalog);
 
   UFUNCTION(BlueprintCallable, Category = "DigitalTwin|Datasets")
-    void ActivateDataset(const FString& CatalogName, const FString& DatasetName);
+    void ActivateDataset(const FString& CatalogName, const FString& DatasetName, int32 SortOrder);
 
   UFUNCTION(BlueprintCallable, Category = "DigitalTwin|Datasets")
     UTexture2D* ActivateDataset2(const FString& CatalogName, const FString& DatasetName);

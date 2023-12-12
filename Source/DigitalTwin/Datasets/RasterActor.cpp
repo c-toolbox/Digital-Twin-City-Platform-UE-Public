@@ -33,7 +33,7 @@ void ARasterActor::BeginPlay()
   Super::BeginPlay();
 }
 
-void ARasterActor::SetDecalTexture(UTexture* Texture)
+void ARasterActor::SetDecalTexture(UTexture* Texture,int32 SortOrder)
 {
   DecalTexture = Texture;
   if (!DynamicMaterial) {
@@ -42,6 +42,7 @@ void ARasterActor::SetDecalTexture(UTexture* Texture)
   if (DecalTexture) {
     DynamicMaterial->SetTextureParameterValue(TEXT("Texture"), DecalTexture);
     DecalComponent->SetDecalMaterial(DynamicMaterial);
+    DecalComponent->SortOrder = SortOrder;
   }
 }
 

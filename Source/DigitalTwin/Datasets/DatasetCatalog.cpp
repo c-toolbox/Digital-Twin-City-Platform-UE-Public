@@ -58,13 +58,13 @@ bool UDatasetCatalog::ContainsDataset(const FString& DatasetName) const
   return false;
 }
 
-bool UDatasetCatalog::ActivateDataset(UWorld* World, const FString& DatasetName)
+bool UDatasetCatalog::ActivateDataset(UWorld* World, const FString& DatasetName, int32 SortOrder)
 {
   for (UDataset* Dataset : Datasets)
   {
     if (Dataset->GetDatasetName() == DatasetName)
     {
-      Dataset->ActivateDataset(World);
+      Dataset->ActivateDataset(World,SortOrder);
       return true;
     }
   }

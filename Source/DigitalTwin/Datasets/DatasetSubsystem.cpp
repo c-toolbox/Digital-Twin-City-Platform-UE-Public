@@ -103,7 +103,7 @@ void UDatasetSubsystem::RegisterCatalog(UDatasetCatalog* Catalog)
 }
 
 
-void UDatasetSubsystem::ActivateDataset(const FString& CatalogName, const FString& DatasetName)
+void UDatasetSubsystem::ActivateDataset(const FString& CatalogName, const FString& DatasetName, int32 SortOrder)
 {
   auto World = GetWorld();
 
@@ -111,7 +111,7 @@ void UDatasetSubsystem::ActivateDataset(const FString& CatalogName, const FStrin
   for (const auto Catalog : DatasetCatalogs) {
     if (Catalog->GetCatalogName() == CatalogName) {
       //TODO: Might call this "Activate" instead...
-      if (Catalog->ActivateDataset(World, DatasetName)) {
+      if (Catalog->ActivateDataset(World, DatasetName,SortOrder)) {
         bFoundDataset = true;
         break;
       }
@@ -165,7 +165,7 @@ UTexture2D* UDatasetSubsystem::ActivateDataset2(const FString &CatalogName,
   RasterActor = GetWorld()->SpawnActor<ARasterActor>();
 
   RasterActor->DatasetName = DatasetName;
-  RasterActor->SetDecalTexture(RasterTexture);
+  RasterActor->SetDecalTexture(RasterTexture,0);
   //RasterActor->SetExtent(Extent);
 
   

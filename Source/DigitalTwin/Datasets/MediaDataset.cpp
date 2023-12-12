@@ -19,7 +19,7 @@ UMediaDataset::UMediaDataset()
 }
 
 static int32 UUID = 0;
-void UMediaDataset::ActivateDataset(UWorld* World)
+void UMediaDataset::ActivateDataset(UWorld* World, int32 SortOrder)
 {
   if (!RasterActor) {
     if (MetaData.MediaPlayer) {
@@ -39,7 +39,7 @@ void UMediaDataset::ActivateDataset(UWorld* World)
 void UMediaDataset::ToggleDataset(UWorld* World)
 {
   if (!RasterActor) {
-    ActivateDataset(World);
+    ActivateDataset(World,0);
   }
   else {
     RasterActor->Destroy();
@@ -88,7 +88,7 @@ void UMediaDataset::PlaybackResumed()
       RasterActor->SetActorLabel(DatasetName);
 #endif
       RasterActor->DatasetName = DatasetName;
-      RasterActor->SetDecalTexture(MediaTexture);
+      RasterActor->SetDecalTexture(MediaTexture,1);
       RasterActor->SetExtent(Extent);
       RasterActor->AddActorLocalRotation(MetaData.Rotation);
     }

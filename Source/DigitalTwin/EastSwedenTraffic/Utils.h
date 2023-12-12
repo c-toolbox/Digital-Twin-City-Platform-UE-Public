@@ -28,9 +28,9 @@ USTRUCT(BlueprintType)
 struct DIGITALTWIN_API FMapLight
 {
 	GENERATED_USTRUCT_BODY()
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Utils)
 	FString Id;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Utils)
 	FVector2D Pos;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Utils)
 	FLinearColor Color;
@@ -98,6 +98,15 @@ struct DIGITALTWIN_API FRequest
 	FString Type;
 };
 
+/**
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+
 USTRUCT(BlueprintType)
 struct DIGITALTWIN_API FMapLightRequest : public FRequest
 {
@@ -133,7 +142,7 @@ struct DIGITALTWIN_API FLightRequest : public FRequest
 	GENERATED_USTRUCT_BODY()
 
 	FLightRequest() : Day(0), Year(0), Solar_Time(0.0f) { Type = "LightRequest"; }
-
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Utils)
 	uint8 Day = 0;
 
@@ -152,6 +161,7 @@ struct DIGITALTWIN_API FActiveDatasetRequest : public FRequest
 {
 	GENERATED_USTRUCT_BODY()
 	FActiveDatasetRequest() { Type = "ActiveDatasetRequest"; }
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Utils)
 	FString Datasets;
 };
@@ -161,6 +171,7 @@ struct DIGITALTWIN_API FDeactiveDatasetRequest : public FRequest
 {
 	GENERATED_USTRUCT_BODY()
 	FDeactiveDatasetRequest() { Type = "DeactivateDatasetRequest"; }
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Utils)
 	FString Datasets;
 };
@@ -170,6 +181,7 @@ struct DIGITALTWIN_API FRestApplication : public FRequest
 {
 	GENERATED_USTRUCT_BODY()
 	FRestApplication() { Type = "Reset"; }
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Utils)
 	FString Misc;
 };

@@ -32,8 +32,7 @@ public:
   void SetQueue(const TSharedPtr<TQueue<FTrafficData>> &Q);
 
 private:
-  //template<class T>
-  //  T* createPointer(T &t);
+  
   
   FRunnableThread *Thread;
   bool Running;
