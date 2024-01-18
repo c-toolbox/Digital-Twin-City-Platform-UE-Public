@@ -56,25 +56,7 @@ void UZeroMqCommunication::StartWorker(const FString WorkerName,
     return;
   }
   Workers.Add(WorkerName, ZeroMqWorker);
-}
-
-void UZeroMqCommunication::StartWebSocketWorker(FString WorkerName,
-                                                FString Interface) {
-
-  if (!Message_Queue.IsValid()) {
-    Message_Queue = MakeShared<TQueue<FRequest *>>();
-  }
-  auto *Websocket_Worker =
-      new FWebSocketWorker(Message_Queue, Interface, WorkerName,
-                           GetWorld()->GetSubsystem<UScenarioSubsystem>());
-
-  if (Websocket_Worker) {
-    Websocket_Worker->Init();
-  } else {
-    return;
-  }
-
-  WebWorkers.Add(WorkerName, Websocket_Worker);
+  OnGenericResponse.Broadcast("ActivateTrafficResponse");
 }
 
 void UZeroMqCommunication::StopWorkers() {
@@ -112,19 +94,3 @@ void UZeroMqCommunication::SendRequest(const FString WorkerName) {
   }
 }
 
-void UZeroMqCommunication::SendWebSocketRequest(const FString WorkerName,
-                                                FRequest Request) {
-  const auto Worker = WebWorkers[WorkerName];
-  if (Worker) {
-    // Worker->SendResponse();
-  }
-}
-
-void UZeroMqCommunication::SendWebSocketResponse(const FString WorkerName,
-                                                 FResponse Response) {
-  const auto Worker = WebWorkers[WorkerName];
-  if (Worker) {
-    // Convert to JSON ..... !
-    // Worker->SendJSONResponse(nullptr);
-  }
-}

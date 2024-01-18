@@ -18,6 +18,9 @@ template <typename T> FString CreateJsonResponseString(T &t) {
 
 void UWebSocketSubsystem::Initialize(FSubsystemCollectionBase &Collection) {
   Super::Initialize(Collection);
+  UE_LOG(LogTemp, Display,
+         TEXT("--------------------UWebSocketSubsystem "
+              "Initialize--------------------"));
   if (!FModuleManager::Get().IsModuleLoaded("WebSockets")) {
     FModuleManager::Get().LoadModule("WebSockets");
     Socket =
@@ -33,7 +36,7 @@ void UWebSocketSubsystem::Initialize(FSubsystemCollectionBase &Collection) {
   }
 
   UE_LOG(LogTemp, Display,
-         TEXT("<UWebSocketSubsystem(FWebSocketWorker Init start )>"));
+         TEXT(" UWebSocketSubsystem(FWebSocketWorker Init start !"));
   // We bind all available events
   Socket->OnConnected().AddLambda([]() -> void {
     UE_LOG(LogTemp, Display, TEXT("Succesfully connected to server"));
@@ -43,15 +46,15 @@ void UWebSocketSubsystem::Initialize(FSubsystemCollectionBase &Collection) {
   Socket->OnConnectionError().AddLambda([](const FString &Error) -> void {
     // This code will run if the connection failed. Check Error to see what
     // happened.
-    UE_LOG(LogTemp, Display, TEXT("Connection failed: %s"), *Error);
+    UE_LOG(LogTemp, Error, TEXT("Connection failed: %s"), *Error);
   });
 
-  Socket->OnClosed().AddLambda([](int32 StatusCode, const FString &Reason,
-                                  bool bWasClean) -> void {
-    // This code will run when the connection to the server has been terminated.
-    // Because of an error or a call to Socket->Close().
-    UE_LOG(LogTemp, Display, TEXT("Connection was terminated: %s"), *Reason);
-  });
+  Socket->OnClosed().AddLambda(
+      [](int32 StatusCode, const FString &Reason, bool bWasClean) -> void {
+        // This code will run when the connection to the server has been
+        // terminated. Because of an error or a call to Socket->Close().
+        UE_LOG(LogTemp, Error, TEXT("Connection was terminated: %s"), *Reason);
+      });
 
   Socket->OnMessage().AddLambda([this](const FString &Message) -> void {
     // This code will run when we receive a string message from the server.
@@ -66,7 +69,7 @@ void UWebSocketSubsystem::Initialize(FSubsystemCollectionBase &Collection) {
       });
 
   Socket->OnMessageSent().AddLambda([](const FString &MessageString) -> void {
-    UE_LOG(LogTemp, Display, TEXT("Message received: %s"), *MessageString);
+    UE_LOG(LogTemp, Display, TEXT("OnMessageSent : %s"), *MessageString);
     // This code is called after we sent a message to the server.
   });
 
@@ -86,32 +89,74 @@ void UWebSocketSubsystem::Initialize(FSubsystemCollectionBase &Collection) {
 
   Socket->Send(OutputString);
   UE_LOG(LogTemp, Display,
-         TEXT("<UWebSocketSubsystem(FWebSocketWorker Init end )>"));
+         TEXT("UWebSocketSubsystem(FWebSocketWorker Init end "));
 }
 
-void UWebSocketSubsystem::Deinitialize() { Super::Deinitialize(); }
+void UWebSocketSubsystem::Deinitialize() {
+  Super::Deinitialize();
+  UE_LOG(LogTemp, Display,
+         TEXT("--------------------UWebSocketSubsystem "
+              "Deinitialize--------------------"));
+  Enabled = false;
+}
+
+bool UWebSocketSubsystem::Enable() {
+  if (Enabled) {
+    Enabled = false;
+    return Enabled;
+  } else {
+    Enabled = true;
+    return Enabled;
+  }
+}
+
+bool UWebSocketSubsystem::DelayEnable() {
+  if (Enabled2) {
+    Enabled2 = false;
+    return Enabled2;
+  } else {
+    Enabled2 = true;
+    return Enabled2;
+  }
+}
+
+void UWebSocketSubsystem::SendRepsonse(FString Message) {
+
+  FGenericResponse Response;
+  Response.Type = Message;
+  Response.Misc = "";
+  FString JSONMessage = CreateJsonResponseString<FResponse>(Response);
+  SendJsonResponse(JSONMessage);
+}
 
 void UWebSocketSubsystem::HandleRequest(const FString &Message) const {
+
+  if (!Enabled) {
+    return;
+  }
+
   FRequest Req;
   FJsonObjectConverter::JsonObjectStringToUStruct(Message, &Req, 0, 0);
   FString JSONPayload = Message;
 
   if (Req.Type == "ScenariosRequest") {
     // #TODO Maybe change this later
-    // Direct Response
-    FServerSendAllScenariosResponse Response;
-    auto *S_Subsystem = GetWorld()->GetSubsystem<UScenarioSubsystem>();
-    // #TODO Add language in request
-    Response.Scenarios = S_Subsystem->GetScenarios(Language::Swedish);
-    FString JSONMessage =
-        CreateJsonResponseString<FServerSendAllScenariosResponse>(Response);
-    SendJsonResponse(JSONMessage);
+
+    FScenarioRequest Response =
+        CreateRequestStruct<FScenarioRequest>(JSONPayload);
+    if( (Response.Language != "sv-SE" ) && (Response.Language != "en-US") ) {
+      SendErrorResponse("ScenarioRequestError","Client haven`t specified language");
+    } else {
+      OnGetScenarioRequest.Broadcast(Response.Language);  
+    }
   }
 
   if (Req.Type == "PingRequest") {
     FPingResponse Response;
     FString JSONMessage = CreateJsonResponseString<FPingResponse>(Response);
-    SendJsonResponse(JSONMessage);
+    if (Socket.IsValid()) {
+      SendJsonResponse(JSONMessage);
+    }
   }
 
   if (Req.Type == "MapLightRequest") {
@@ -142,6 +187,7 @@ void UWebSocketSubsystem::HandleRequest(const FString &Message) const {
   if (Req.Type == "ActivateDatasetRequest") {
     FActiveDatasetRequest Response =
         CreateRequestStruct<FActiveDatasetRequest>(JSONPayload);
+
     // #TODO Remove this ... !
     FActivateMap Test;
     Test.Datasets = Response.Datasets;
@@ -157,16 +203,56 @@ void UWebSocketSubsystem::HandleRequest(const FString &Message) const {
     OnDatasetUpdate.Broadcast(Test, false);
   }
 
-  if (Req.Type == "Reset") {
+  if (Req.Type == "ResetRequest") {
     FRestApplication Response =
         CreateRequestStruct<FRestApplication>(JSONPayload);
     // #TODO Remove this ... !
     OnReset.Broadcast(Response.Misc);
   }
+
+  if (Req.Type == "ActivateTrafficRequest") {
+    // #TODO Remove this ... !
+    OnActivateRealTimeTraffic.Broadcast(true);
+  }
+
+  if (Req.Type == "DeactivateTrafficRequest") {
+    // #TODO Remove this ... !
+    OnActivateRealTimeTraffic.Broadcast(false);
+  }
 }
 
 void UWebSocketSubsystem::SendJsonResponse(const FString &JSONString) const {
-  if (Socket->IsConnected()) {
-      Socket->Send(JSONString);
+  
+  if (!Socket.IsValid()) {
+    return;
   }
+
+  if (Socket->IsConnected()) {
+    Socket->Send(JSONString);
+  }
+}
+
+void UWebSocketSubsystem::SendErrorResponse(const FString &ResponseType,const FString &Message) const {
+  FErrorResponse Response;
+  Response.Type = ResponseType;
+  Response.Error = Message;
+  FString JSONMessage = CreateJsonResponseString<FErrorResponse>(Response);
+  SendJsonResponse(JSONMessage);
+}
+
+
+void UWebSocketSubsystem::SendScenarioJsonRepsonse(
+    TArray<FScenario> Scenarios)  {
+
+  
+  if (!Socket.IsValid()) {
+    return;
+  }
+
+  FServerSendAllScenariosResponse Response;
+  // #TODO Add language in request
+  Response.Scenarios = Scenarios;
+  FString JSONMessage =
+      CreateJsonResponseString<FServerSendAllScenariosResponse>(Response);
+  SendJsonResponse(JSONMessage);
 }

@@ -60,7 +60,7 @@ void AEastSwedenTraffic::Tick(float DeltaTime) {
         auto PositionDelta = Data.NewPosition - Data.OldPosition;
         const auto NewPos =
             Data.OldPosition + (CurrentTimeDelta / Delta) * PositionDelta;
-        UpdateMesh(EntityType, Data.Id, NewPos);
+        UpdateEntityPosition(EntityType, Data.Id, NewPos);
         // }
       }
     }
@@ -121,9 +121,7 @@ void AEastSwedenTraffic::CreateVisualEntity(const FTrafficData &Data,
 void AEastSwedenTraffic::UpdateVisualEntity(const FTrafficData &Data,
                                             const FVector &EngineCoordinates,
                                             FVisualTraffic &Update_Candidate) {
-  UE_LOG(LogTemp, Log,
-         TEXT("UpdateVisualEntity : Update_Candidate.Positions Size %d"),
-         Update_Candidate.Positions.Num());
+
   const auto Oldpos = Update_Candidate.NewPosition;
   const auto OldTime = Update_Candidate.NewTimeStamp;
 
@@ -137,6 +135,10 @@ void AEastSwedenTraffic::UpdateVisualEntity(const FTrafficData &Data,
 }
 
 void AEastSwedenTraffic::Update(const FTrafficData &Data) {
+
+  if (Disable)
+    return;
+
   AGeoReferencingSystem *Subsystem =
       AGeoReferencingSystem::GetGeoReferencingSystem(GetWorld());
   if (Subsystem != nullptr) {
@@ -167,51 +169,89 @@ void AEastSwedenTraffic::Update(const FTrafficData &Data) {
   }
 }
 
-void AEastSwedenTraffic::AddNewMesh(const FString &Type, const FString &Id,
-                                    const FColor &Color,
-                                    const FVector &Position) {
-  const auto TypeIndex = TypeInstancePositions.Find(Type);
-  if (TypeIndex == nullptr) {
-    const FName Instance_Name(Type);
-    const auto Mesh = NewObject<UHierarchicalInstancedStaticMeshComponent>(
-        this, Instance_Name);
-
-    Mesh->SetupAttachment(MeshRootComponent);
-    Mesh->SetStaticMesh(TrafficMesh);
-
+void AEastSwedenTraffic::AddToExtistingHISM(const FString &Id,
+                                            const FColor &Color,
+                                            const FVector &Position,
+                                            int *const TypeIndex) {
+  if (IDInstancePositions.Find(Id) == nullptr) {
     const FLinearColor TypeColor(Color);
-    UMaterialInstanceDynamic *DynamicMaterialInstance =
-        UMaterialInstanceDynamic::Create(MaterialBase, this);
-    DynamicMaterialInstance->SetVectorParameterValue({"Color"}, TypeColor);
+    const auto Transform = FTransform(Position);
+    const auto IdIdx = TrafficPositions[*TypeIndex]->AddInstance(Transform);
 
-    // TODO Review this .. !
-    Mesh->SetMaterial(0, DynamicMaterialInstance);
-    FRotator Rotation;
-    Rotation.Yaw = 0.5f;
-    const FVector Scale(0.125f);
-    //
-    const auto Transform = FTransform(Rotation, Position, Scale);
-    const auto IdIdx = Mesh->AddInstance(Transform);
-    //
-    Mesh->SetWorldScale3D(Scale);
     IDInstancePositions.Add(Id, IdIdx);
-    TrafficPositions.Push(Mesh);
-    TypeInstancePositions.Add(Type, TrafficPositions.Num() - 1);
-    Mesh->RegisterComponent();
   } else {
-    if (IDInstancePositions.Find(Id) == nullptr) {
-      const auto Transform = FTransform(Position);
-      const auto IdIdx = TrafficPositions[*TypeIndex]->AddInstance(Transform);
-      IDInstancePositions.Add(Id, IdIdx);
-    } else {
-      UE_LOG(LogTemp, Error,
-             TEXT(" Could not find id in IDinstancPositions ! "));
-    }
+    UE_LOG(LogTemp, Error, TEXT(" Could not find id in IDinstancPositions ! "));
   }
 }
 
-void AEastSwedenTraffic::UpdateMesh(const FString &Type, const FString &Id,
+//TODO Review this !!
+void AEastSwedenTraffic::CreateNewHism(const FString &Type, const FString &Id,
+                                       const FColor &Color,
+                                       const FVector &Position) {
+  UE_LOG(LogTemp, Error, TEXT(" New type detected : &s "), *Type);
+
+  const FName Instance_Name(Type);
+  const auto Mesh =
+      NewObject<UHierarchicalInstancedStaticMeshComponent>(this, Instance_Name);
+
+  Mesh->SetupAttachment(MeshRootComponent);
+  Mesh->SetStaticMesh(TrafficMesh);
+  Mesh->NumCustomDataFloats = 3;
+
+  /*
+   *
+   */
+  const FLinearColor TypeColor(Color);
+  UMaterialInstanceDynamic *DynamicMaterialInstance =
+      UMaterialInstanceDynamic::Create(MaterialBase, this);
+  DynamicMaterialInstance->SetVectorParameterValue({"Color"}, TypeColor);
+
+  // TODO Review this .. !
+  /**
+   *
+   */
+  Mesh->SetMaterial(0, DynamicMaterialInstance);
+  FRotator Rotation;
+  Rotation.Yaw = 0.5f;
+  const FVector Scale(0.125f);
+
+  /**
+   *
+   */
+  const auto Transform = FTransform(Rotation, Position, Scale);
+  const auto IdIdx = Mesh->AddInstance(Transform);
+  
+  Mesh->SetWorldScale3D(Scale);
+  IDInstancePositions.Add(Id, IdIdx);
+  TrafficPositions.Push(Mesh);
+  TypeInstancePositions.Add(Type, TrafficPositions.Num() - 1);
+  Mesh->RegisterComponent();
+}
+
+//TODO Review this !!
+void AEastSwedenTraffic::AddNewMesh(const FString &Type, const FString &Id,
+                                    const FColor &Color,
                                     const FVector &Position) {
+
+  if (Disable)
+    return;
+  
+  const auto TypeIndex = TypeInstancePositions.Find(Type);
+
+  if (TypeIndex == nullptr) {
+    CreateNewHism(Type, Id, Color, Position);
+  } else {
+    AddToExtistingHISM(Id, Color, Position, TypeIndex);
+  }
+  
+}
+
+//TODO Review this !!
+void AEastSwedenTraffic::UpdateEntityPosition(const FString &Type, const FString &Id,
+                                    const FVector &Position) {
+
+  if (Disable)
+    return;
 
   const auto TypeIndex = TypeInstancePositions.Find(Type);
   if (TypeIndex == nullptr) {
@@ -229,6 +269,10 @@ void AEastSwedenTraffic::UpdateMesh(const FString &Type, const FString &Id,
 }
 
 void AEastSwedenTraffic::RemoveMesh(const FString &Type, const FString &Id) {
+
+  if (Disable)
+    return;
+
   const auto TypeIndex = TypeInstancePositions.Find(Type);
   if (TypeIndex == nullptr) {
     return;
@@ -243,15 +287,45 @@ void AEastSwedenTraffic::RemoveMesh(const FString &Type, const FString &Id) {
   Mesh->RemoveInstance(*IdIndex);
 }
 
+void AEastSwedenTraffic::Clear() {
+  
+  for (auto Instance : TrafficPositions) {
+    auto index = Instance->GetNumRenderInstances();
+    for (int i = 0; i < index; ++i) {
+      Instance->RemoveInstance(i);
+    }
+  }
+
+  /**
+   *
+   */
+  TypeInstancePositions.Reset();
+  TypeInstancePositions.Shrink();
+
+  /**
+     *
+     */
+  IDInstancePositions.Reset();
+  IDInstancePositions.Shrink();
+
+  /**
+   *
+   */
+  Traffic_DMap.Reset();
+  Traffic_DMap.Shrink();
+}
+
 /*
-                                if(Data.Positions.Num() == 4 )
-                                {
-                                /*
-                                        q(t) = 0.5 *(   	(2 * P1) +
-                                        (-P0 + P2) * t +
-                                        (2*P0 - 5*P1 + 4*P2 - P3) * t2 +
-                                        (-P0 + 3*P1- 3*P2 + P3) * t3)
-                                 */
+if(Data.Positions.Num() == 4 )
+{
+
+/*
+q(t) = 0.5 *(   	(2 * P1) +
+(-P0 + P2) * t +
+(2*P0 - 5*P1 + 4*P2 - P3) * t2 +
+(-P0 + 3*P1- 3*P2 + P3) * t3)
+*/
+
 // auto CurrentTimeDelta = CurrentTime - T1;
 // const auto P0 = Data.Positions[0];
 // const auto P1 = Data.Positions[1];
