@@ -98,14 +98,16 @@ struct DIGITALTWIN_API FRequest
 	FString Type;
 };
 
-/**
- *
- *
- *
- *
- *
- *
- */
+USTRUCT(BlueprintType)
+struct DIGITALTWIN_API FScenarioRequest : public FRequest
+{
+	GENERATED_USTRUCT_BODY()
+
+	FScenarioRequest() { Type = "ScenarioRequest"; }
+	UPROPERTY(BlueprintReadWrite)
+	FString Language = "Not-set";
+};
+
 
 USTRUCT(BlueprintType)
 struct DIGITALTWIN_API FMapLightRequest : public FRequest
@@ -204,11 +206,28 @@ struct DIGITALTWIN_API FResponse
 };
 
 USTRUCT(BlueprintType)
+struct DIGITALTWIN_API FErrorResponse : public FResponse
+{
+	GENERATED_USTRUCT_BODY()
+	FErrorResponse() { Type = "ErrorResponse"; }
+	FString Error;
+};
+
+USTRUCT(BlueprintType)
 struct DIGITALTWIN_API FPingResponse : public FResponse
 {
 	GENERATED_USTRUCT_BODY()
 	FPingResponse() { Type = "PingResponse"; }
 };
+
+USTRUCT(BlueprintType)
+struct DIGITALTWIN_API FGenericResponse : public FResponse
+{
+	GENERATED_USTRUCT_BODY()
+	FGenericResponse() { Type = "GenericResponse"; }
+	FString Misc;
+};
+
 
 USTRUCT(BlueprintType)
 struct DIGITALTWIN_API FLightResponse : public FResponse
@@ -223,7 +242,7 @@ USTRUCT()
 struct DIGITALTWIN_API FServerSendAllScenariosResponse : public FResponse
 {
 	GENERATED_USTRUCT_BODY()
-	FServerSendAllScenariosResponse() { Type = "ScenarioResponse"; }
+	FServerSendAllScenariosResponse() { Type = "ScenariosResponse"; }
 	UPROPERTY()
 	TArray<FScenario> Scenarios;
 };

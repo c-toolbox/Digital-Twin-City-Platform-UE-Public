@@ -20,29 +20,24 @@
 UCLASS()
 class DIGITALTWIN_API UZeroMqCommunication : public UTickableWorldSubsystem {
   GENERATED_BODY()
-  //
+  /*
+   * 
+   */
   DECLARE_MULTICAST_DELEGATE_OneParam(FTrafficUpdate ,const FTrafficData &);
-  //
-  DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FMapLightUpdate ,const FMapLight& , Data);
-  DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FLightUpdate    ,const FSkyLight2& , Data);
-  DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FReset, const FString& , Misc);
-  //
-  DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FDatasetUpdate  ,const FActivateMap& , Dataset, bool , Enable);
-  //
+  /*
+   * 
+   */
+  DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FGenericResponseDelegate ,const FString& ,ResponseString);
+ 
 public:
+  /*
+   *
+   */
   FTrafficUpdate OnTrafficUpdate;
 
   UPROPERTY(BlueprintAssignable)
-  FDatasetUpdate OnDatasetUpdate;
+  FGenericResponseDelegate OnGenericResponse;
 
-  UPROPERTY(BlueprintAssignable)
-  FMapLightUpdate OnMapLightUpdate;
-
-  UPROPERTY(BlueprintAssignable)
-  FLightUpdate OnLightUpdate;
-
-  UPROPERTY(BlueprintAssignable)
-  FReset OnReset;
   
   virtual void Initialize(FSubsystemCollectionBase &Collection) override;
   virtual void Deinitialize() override;
@@ -51,22 +46,12 @@ public:
   
   UFUNCTION(BlueprintCallable)
   void StartWorker(FString WorkerName, FString Interface);
-
-  
-  UFUNCTION(BlueprintCallable)
-  void StartWebSocketWorker(FString WorkerName, FString Interface);
-  
+    
   UFUNCTION(BlueprintCallable)
   void StopWorkers();
 
   UFUNCTION(BlueprintCallable)
   void SendRequest(const FString WorkerName);
-
-  UFUNCTION(BlueprintCallable)
-  void SendWebSocketRequest(const FString WorkerName,FRequest Request);
-
-  UFUNCTION(BlueprintCallable)
-  void SendWebSocketResponse(const FString WorkerName,FResponse Response);
 
 private:
   // TODO Refactor this .... !
