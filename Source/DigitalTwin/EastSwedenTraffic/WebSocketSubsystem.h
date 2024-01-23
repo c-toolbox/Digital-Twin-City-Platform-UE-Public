@@ -9,6 +9,22 @@
 #include "Utils.h"
 #include "WebSocketSubsystem.generated.h"
 
+
+UCLASS(Config = Game)
+class DIGITALTWIN_API UWebsocketSettings : public UObject {
+  GENERATED_BODY()
+public:
+
+  //
+  // Values are from test configuration in Gothenburg !
+  //
+  UPROPERTY(EditAnywhere, Config, Category = "UWebsocketSettings")
+  FString ServerURL = TEXT("wss://omni.itn.liu.se/ws/");
+  UPROPERTY(EditAnywhere, Config, Category = "WebsocketSettings")
+  FString Protocol  = TEXT("wss");;
+};
+
+
 UCLASS()
 class DIGITALTWIN_API UWebSocketSubsystem : public UGameInstanceSubsystem {
   GENERATED_BODY()
@@ -22,6 +38,7 @@ public:
   DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FLightUpdate, const FSkyLight2 &,
                                               Data);
   DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FReset, const FString &, Misc);
+  
   DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FDatasetUpdate,
                                                const FActivateMap &, Dataset,
                                                bool, Enable);
@@ -30,6 +47,8 @@ public:
   DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FGetScenarioRequest, FString,
                                               Language);
 
+  DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FGenericActivation, const FString &, Message ,bool , OnOff);
+  
   UPROPERTY(BlueprintAssignable, Category = "DigitalTwin|WebSocketSubsystem")
   FDatasetUpdate OnDatasetUpdate;
 
@@ -48,6 +67,9 @@ public:
   UPROPERTY(BlueprintAssignable, Category = "DigitalTwin|WebSocketSubsystem")
   FGetScenarioRequest OnGetScenarioRequest;
 
+  UPROPERTY(BlueprintAssignable, Category = "DigitalTwin|WebSocketSubsystem")
+  FGenericActivation OnGenericActivation;
+
   UFUNCTION(BlueprintCallable, Category  = "DigitalTwin|WebSocketSubsystem")
   bool Enable();
 
@@ -55,24 +77,16 @@ public:
   bool DelayEnable();
 
   UFUNCTION(BlueprintCallable, Category  = "DigitalTwin|WebSocketSubsystem")
-  void SendRepsonse(FString Response);
-
-  void HandleRequest(const FString &Message) const;
-  void SendJsonResponse(const FString &Message) const;
-  void SendErrorResponse(const FString &Response,const FString &Message) const;
-
+  void SendResponse(FString Response) const;
+  
   UFUNCTION(BlueprintCallable, Category = "DigitalTwin|WebSocketSubsystem")
-  void SendScenarioJsonRepsonse(TArray<FScenario> Scenarios);
-  //c2e5879a-4b66-45f5-adfa-5385ed18ca0c
+  void SendScenarioJsonResponse(TArray<FScenario> Scenarios);
   
-private:
-  
-  // #TODO Move to config !
-  UPROPERTY()
-  FString ServerURL = TEXT("wss://omni.itn.liu.se/ws/");
-  UPROPERTY()
-  FString ServerProtocol = TEXT("wss");
+  void HandleRequest(const FString &Message) const;
+  void SendJsonResponse(const FString &ResponseString) const;
+  void SendErrorResponse(const FString &ResponseType,const FString &Message) const;
 
+private:
   
   TSharedPtr<IWebSocket> Socket; // The WebServer
 

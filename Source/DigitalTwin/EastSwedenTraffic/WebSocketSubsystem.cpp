@@ -18,16 +18,16 @@ template <typename T> FString CreateJsonResponseString(T &t) {
 
 void UWebSocketSubsystem::Initialize(FSubsystemCollectionBase &Collection) {
   Super::Initialize(Collection);
-  UE_LOG(LogTemp, Display,
-         TEXT("--------------------UWebSocketSubsystem "
-              "Initialize--------------------"));
+  
+  const UWebsocketSettings* Settings = GetMutableDefault<UWebsocketSettings>();
+  UE_LOG(LogTemp, Display, TEXT(" | UWebSocketSubsystem Server   : %s "),*Settings->ServerURL);
+  UE_LOG(LogTemp, Display, TEXT(" | UWebSocketSubsystem Protocol : %s "),*Settings->Protocol);
+
   if (!FModuleManager::Get().IsModuleLoaded("WebSockets")) {
     FModuleManager::Get().LoadModule("WebSockets");
-    Socket =
-        FWebSocketsModule::Get().CreateWebSocket(ServerURL, ServerProtocol);
+    Socket = FWebSocketsModule::Get().CreateWebSocket(Settings->ServerURL, Settings->Protocol);
   } else {
-    Socket =
-        FWebSocketsModule::Get().CreateWebSocket(ServerURL, ServerProtocol);
+    Socket = FWebSocketsModule::Get().CreateWebSocket(Settings->ServerURL, Settings->Protocol);
   }
 
   if (!Socket.IsValid()) {
@@ -35,8 +35,7 @@ void UWebSocketSubsystem::Initialize(FSubsystemCollectionBase &Collection) {
     return;
   }
 
-  UE_LOG(LogTemp, Display,
-         TEXT(" UWebSocketSubsystem(FWebSocketWorker Init start !"));
+  UE_LOG(LogTemp, Display, TEXT(" UWebSocketSubsystem(FWebSocketWorker Init start !"));
   // We bind all available events
   Socket->OnConnected().AddLambda([]() -> void {
     UE_LOG(LogTemp, Display, TEXT("Succesfully connected to server"));
@@ -75,28 +74,23 @@ void UWebSocketSubsystem::Initialize(FSubsystemCollectionBase &Collection) {
 
   // And we finally connect to the server.
   Socket->Connect();
-  // #TODO Move to function !!
+  
   TSharedPtr<FJsonObject> JsonObject = MakeShared<FJsonObject>();
   JsonObject->SetStringField("token", "c2e5879a-4b66-45f5-adfa-5385ed18ca0c");
   FString OutputString;
-  TSharedRef<TJsonWriter<>> Writer =
-      TJsonWriterFactory<>::Create(&OutputString);
+  TSharedRef<TJsonWriter<>> Writer = TJsonWriterFactory<>::Create(&OutputString);
   FJsonSerializer::Serialize(JsonObject.ToSharedRef(), Writer);
 
-  // #TODO For some odd reason you can`t call SendJSONResponse here .... hmmm
-  // ...
+  // #TODO For some odd reason you can`t call SendJSONResponse here, hmmm .... !
   // .... ! Blame @Golen :-)
-
+  
   Socket->Send(OutputString);
-  UE_LOG(LogTemp, Display,
-         TEXT("UWebSocketSubsystem(FWebSocketWorker Init end "));
+  UE_LOG(LogTemp, Display, TEXT("UWebSocketSubsystem(FWebSocketWorker Init end "));
 }
 
 void UWebSocketSubsystem::Deinitialize() {
   Super::Deinitialize();
-  UE_LOG(LogTemp, Display,
-         TEXT("--------------------UWebSocketSubsystem "
-              "Deinitialize--------------------"));
+  UE_LOG(LogTemp, Display, TEXT("---UWebSocketSubsystem Deinitialize---"));
   Enabled = false;
 }
 
@@ -104,28 +98,26 @@ bool UWebSocketSubsystem::Enable() {
   if (Enabled) {
     Enabled = false;
     return Enabled;
-  } else {
-    Enabled = true;
-    return Enabled;
   }
+  Enabled = true;
+  return Enabled;
 }
 
 bool UWebSocketSubsystem::DelayEnable() {
   if (Enabled2) {
     Enabled2 = false;
     return Enabled2;
-  } else {
-    Enabled2 = true;
-    return Enabled2;
   }
+  Enabled2 = true;
+  return Enabled2;
 }
 
-void UWebSocketSubsystem::SendRepsonse(FString Message) {
+void UWebSocketSubsystem::SendResponse(FString ResponseString) const {
 
   FGenericResponse Response;
-  Response.Type = Message;
+  Response.Type = ResponseString;
   Response.Misc = "";
-  FString JSONMessage = CreateJsonResponseString<FResponse>(Response);
+  const FString JSONMessage = CreateJsonResponseString<FResponse>(Response);
   SendJsonResponse(JSONMessage);
 }
 
@@ -162,7 +154,7 @@ void UWebSocketSubsystem::HandleRequest(const FString &Message) const {
   if (Req.Type == "MapLightRequest") {
     FMapLightRequest Response =
         CreateRequestStruct<FMapLightRequest>(JSONPayload);
-    // #TODO Remove this ... !
+    // #TODO Remove this ... ! ?
     FMapLight Test;
     Test.Color = FLinearColor::FromSRGBColor(FColor::FromHex(Response.Color));
     Test.Id = Response.Name;
@@ -175,7 +167,7 @@ void UWebSocketSubsystem::HandleRequest(const FString &Message) const {
 
   if (Req.Type == "LightRequest") {
     FLightRequest Response = CreateRequestStruct<FLightRequest>(JSONPayload);
-    // #TODO Remove this ... !
+    // #TODO Remove this ... ! ?
     FSkyLight2 Test;
     Test.Day = Response.Day;
     Test.Month = Response.Month;
@@ -187,20 +179,31 @@ void UWebSocketSubsystem::HandleRequest(const FString &Message) const {
   if (Req.Type == "ActivateDatasetRequest") {
     FActiveDatasetRequest Response =
         CreateRequestStruct<FActiveDatasetRequest>(JSONPayload);
-
-    // #TODO Remove this ... !
-    FActivateMap Test;
-    Test.Datasets = Response.Datasets;
-    OnDatasetUpdate.Broadcast(Test, true);
+    
+    // Special Dataset
+    if (Response.Datasets == "RiverFlow") {
+      OnGenericActivation.Broadcast("RiverFlow",true);
+    }
+    
+    //
+    FActivateMap ActivationMap;
+    ActivationMap.Datasets = Response.Datasets;
+    OnDatasetUpdate.Broadcast(ActivationMap, true);
   }
 
   if (Req.Type == "DeactivateDatasetRequest") {
     FActiveDatasetRequest Response =
         CreateRequestStruct<FActiveDatasetRequest>(JSONPayload);
-    // #TODO Remove this ... !
-    FActivateMap Test;
-    Test.Datasets = Response.Datasets;
-    OnDatasetUpdate.Broadcast(Test, false);
+  
+    // Special Dataset
+    if(Response.Datasets == "RiverFlow") {
+      OnGenericActivation.Broadcast("RiverFlow",false);
+    }
+
+    //
+    FActivateMap ActivationMap;
+    ActivationMap.Datasets = Response.Datasets;
+    OnDatasetUpdate.Broadcast(ActivationMap, false);
   }
 
   if (Req.Type == "ResetRequest") {
@@ -219,6 +222,7 @@ void UWebSocketSubsystem::HandleRequest(const FString &Message) const {
     // #TODO Remove this ... !
     OnActivateRealTimeTraffic.Broadcast(false);
   }
+  
 }
 
 void UWebSocketSubsystem::SendJsonResponse(const FString &JSONString) const {
@@ -241,7 +245,7 @@ void UWebSocketSubsystem::SendErrorResponse(const FString &ResponseType,const FS
 }
 
 
-void UWebSocketSubsystem::SendScenarioJsonRepsonse(
+void UWebSocketSubsystem::SendScenarioJsonResponse(
     TArray<FScenario> Scenarios)  {
 
   
