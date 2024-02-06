@@ -103,15 +103,15 @@ void UDatasetSubsystem::RegisterCatalog(UDatasetCatalog* Catalog)
 }
 
 
-void UDatasetSubsystem::ActivateDataset(const FString& CatalogName, const FString& DatasetName, int32 SortOrder)
+void UDatasetSubsystem::ActivateDataset(const FString& CatalogName, const FString& DatasetName, int32 SortOrder, FString MaterialPath)
 {
   auto World = GetWorld();
-
+  MaterialPath  =  "/Game/Materials/DecalMaterial";
   bool bFoundDataset = false;
   for (const auto Catalog : DatasetCatalogs) {
     if (Catalog->GetCatalogName() == CatalogName) {
       //TODO: Might call this "Activate" instead...
-      if (Catalog->ActivateDataset(World, DatasetName,SortOrder)) {
+      if (Catalog->ActivateDataset(World, DatasetName,SortOrder,MaterialPath)) {
         bFoundDataset = true;
         break;
       }
@@ -188,6 +188,15 @@ void UDatasetSubsystem::DisableAllDatasets()
 {
   for (auto& Catalog : DatasetCatalogs) {
     Catalog->DisableAllDatasets(GetWorld());
+  }
+}
+
+void UDatasetSubsystem::DisableDataset(const FString CatalogName,
+                                       const FString DatasetName) {
+  for (const auto & Catalog : DatasetCatalogs) {
+    if(Catalog->GetCatalogName() == CatalogName) {
+      Catalog->DisableDataset(DatasetName,GetWorld());
+    }
   }
 }
 

@@ -26,6 +26,8 @@ public:
 
   UFUNCTION(BlueprintCallable, Category = "DigitalTwin|RasterActor")
   void SetExtent(const FExtent& NewExtent);
+  UFUNCTION(BlueprintCallable, Category = "DigitalTwin|RasterActor")
+  void SetMaterialPath(const FString& MaterialPath);
 
 #if WITH_EDITOR
   //~ Begin UObject Interface
@@ -51,4 +53,8 @@ protected:
     double XExtent = 100.0;
   UPROPERTY(EditAnywhere)
     double YExtent = 100.0;
+
+private:
+  bool IsReady = false;
+  
 };

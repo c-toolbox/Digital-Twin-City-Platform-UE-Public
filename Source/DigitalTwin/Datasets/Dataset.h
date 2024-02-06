@@ -13,7 +13,7 @@ class DIGITALTWIN_API UDataset : public UObject
 {
   GENERATED_BODY()
 public:
-  virtual void ActivateDataset(UWorld* World,int32 SortOrder) {}
+  virtual void ActivateDataset(UWorld* World,int32 SortOrder, FString MaterialPath) {}
   virtual void ToggleDataset(UWorld* World) {}
   virtual void DisableDataset(UWorld* World) {}
 

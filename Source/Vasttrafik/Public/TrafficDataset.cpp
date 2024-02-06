@@ -3,7 +3,7 @@
 #include "TrafficDataset.h"
 #include "TrafficActor.h"
 
-void UTrafficDataset::ActivateDataset(UWorld* World,int SortOrder)
+void UTrafficDataset::ActivateDataset(UWorld* World,int SortOrder, FString MaterialPath)
 {
   TrafficActor->ToggleTraffic(true);
   TrafficActor->ActivateVehicleType(VehicleType);

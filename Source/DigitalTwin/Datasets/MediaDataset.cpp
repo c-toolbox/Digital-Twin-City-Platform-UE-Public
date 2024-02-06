@@ -19,7 +19,7 @@ UMediaDataset::UMediaDataset()
 }
 
 static int32 UUID = 0;
-void UMediaDataset::ActivateDataset(UWorld* World, int32 SortOrder)
+void UMediaDataset::ActivateDataset(UWorld* World, int32 SortOrder, FString MaterialPath)
 {
   if (!RasterActor) {
     if (MetaData.MediaPlayer) {
@@ -39,7 +39,7 @@ void UMediaDataset::ActivateDataset(UWorld* World, int32 SortOrder)
 void UMediaDataset::ToggleDataset(UWorld* World)
 {
   if (!RasterActor) {
-    ActivateDataset(World,0);
+    ActivateDataset(World,0,"");
   }
   else {
     RasterActor->Destroy();

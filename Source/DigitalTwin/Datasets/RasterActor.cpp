@@ -15,12 +15,28 @@ ARasterActor::ARasterActor()
   DecalComponent->bDestroyOwnerAfterFade = true;
 
   RootComponent = DecalComponent;
-  ConstructorHelpers::FObjectFinder<UMaterial> DecalMaterial(TEXT("/Game/Materials/DecalMaterial"));
-  if (DecalMaterial.Succeeded()) {
-    DecalComponent->SetDecalMaterial(DecalMaterial.Object);
-  }
+ 
   DynamicMaterial = nullptr;
 }
+
+void ARasterActor::SetMaterialPath(const FString &MaterialPath) {
+
+  //1. Check path !
+  UMaterial* UnrealMaterial = Cast<UMaterial>(StaticLoadObject(UMaterial::StaticClass(), nullptr, *MaterialPath));
+  
+  if (UnrealMaterial) {
+    DecalComponent->SetDecalMaterial(UnrealMaterial);
+  }
+
+  /*
+  if (RootComponent->MarkPackageDirty()) {
+    UE_LOG(LogTemp, Warning, TEXT("RootComponent is marked dirty"));
+  } else {
+    UE_LOG(LogTemp, Warning, TEXT("RootComponent marked dirty failed !"));
+  }
+  */
+}
+
 
 void ARasterActor::OnConstruction(const FTransform& Transform)
 {

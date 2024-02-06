@@ -33,7 +33,7 @@ public:
   */
   bool ContainsDataset(const FString& DatasetName) const;
 
-  bool ActivateDataset(UWorld* World, const FString& DatasetName, int32 SortOrder);
+  bool ActivateDataset(UWorld* World, const FString& DatasetName, int32 SortOrder , FString MaterialPath);
 
   bool ToggleDataset(UWorld* World, const FString& DatasetName);
 
@@ -55,6 +55,8 @@ public:
   void AddDataset(class UDataset* Dataset);
 
   void DisableAllDatasets(UWorld* World);
+
+  void DisableDataset(FString DatasetName, UWorld* World);
 
 private:
 
