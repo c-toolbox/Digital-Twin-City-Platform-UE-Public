@@ -15,7 +15,7 @@ class VASTTRAFIK_API UTrafficDataset : public UDataset
 {
   GENERATED_BODY()
 public:
-  virtual void ActivateDataset(UWorld* World,int32 SortOrder) override;
+  virtual void ActivateDataset(UWorld* World,int32 SortOrder, FString MaterialPath) override;
   virtual void ToggleDataset(UWorld* World) override;
   virtual void DisableDataset(UWorld* World) override;
 

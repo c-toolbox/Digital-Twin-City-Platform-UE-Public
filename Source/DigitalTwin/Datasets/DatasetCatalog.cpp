@@ -58,13 +58,13 @@ bool UDatasetCatalog::ContainsDataset(const FString& DatasetName) const
   return false;
 }
 
-bool UDatasetCatalog::ActivateDataset(UWorld* World, const FString& DatasetName, int32 SortOrder)
+bool UDatasetCatalog::ActivateDataset(UWorld* World, const FString& DatasetName, int32 SortOrder, FString MaterialPath)
 {
   for (UDataset* Dataset : Datasets)
   {
     if (Dataset->GetDatasetName() == DatasetName)
     {
-      Dataset->ActivateDataset(World,SortOrder);
+      Dataset->ActivateDataset(World,SortOrder,MaterialPath);
       return true;
     }
   }
@@ -105,4 +105,15 @@ void UDatasetCatalog::DisableAllDatasets(UWorld* World)
   {
     Dataset->DisableDataset(World);
   }
+}
+
+void UDatasetCatalog::DisableDataset(FString DatasetName, UWorld* World) {
+
+  for (auto& Dataset : Datasets)
+  {
+    if(DatasetName == Dataset->GetDatasetName()) {
+      Dataset->DisableDataset(World);  
+    }
+  }
+  
 }

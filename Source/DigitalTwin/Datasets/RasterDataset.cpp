@@ -87,7 +87,7 @@ void FImageData::ParsePNG(IImageWrapperModule& ImageWrapperModule, const TArray6
   }
 }
 
-void URasterDataset::ActivateDataset(UWorld* World,int32 SortOrder)
+void URasterDataset::ActivateDataset(UWorld* World, const int32 SortOrder, FString MaterialPath)
 {
   if (!RasterActor) {
     const FExtent& Extent = MetaData.Extent;
@@ -95,6 +95,7 @@ void URasterDataset::ActivateDataset(UWorld* World,int32 SortOrder)
     if (World->WorldType == EWorldType::Game || World->WorldType == EWorldType::GamePreview || World->WorldType == EWorldType::PIE)
     {
       RasterActor = World->SpawnActor<ARasterActor>();
+      RasterActor->SetMaterialPath(MaterialPath);
 #if WITH_EDITORONLY_DATA
       RasterActor->SetActorLabel(DatasetName);
 #endif
@@ -108,7 +109,7 @@ void URasterDataset::ActivateDataset(UWorld* World,int32 SortOrder)
 void URasterDataset::ToggleDataset(UWorld* World)
 {
   if (!RasterActor) {
-    ActivateDataset(World,0);
+    ActivateDataset(World,0,"");
   }
   else {
     RasterActor->Destroy();

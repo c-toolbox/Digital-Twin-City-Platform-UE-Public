@@ -14,14 +14,10 @@ UCLASS(Config = Game)
 class DIGITALTWIN_API UWebsocketSettings : public UObject {
   GENERATED_BODY()
 public:
-
-  //
-  // Values are from test configuration in Gothenburg !
-  //
   UPROPERTY(EditAnywhere, Config, Category = "UWebsocketSettings")
   FString ServerURL = TEXT("wss://omni.itn.liu.se/ws/");
   UPROPERTY(EditAnywhere, Config, Category = "WebsocketSettings")
-  FString Protocol  = TEXT("wss");;
+  FString Protocol  = TEXT("wss");
 };
 
 
