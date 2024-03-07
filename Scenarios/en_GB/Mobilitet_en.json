@@ -1,0 +1,21 @@
+{
+    "Title": "Mobility",
+    "Sections": [
+        {
+            "Label1": "",
+            "SectionObject": [
+                {
+                    "Title": "Mobility",
+                    "Text1": "This visualization shows residents’ movements during a 24-hour period within the ‘moat’ in the centre of Gothenburg. The simulation uses a synthetic population based on demographic data (SCB). Data from a traffic analysis (Travel Survey – RVU Trafikanalys, 2017) has been used to assign the synthetic population activities for a day.",
+                    "Text2": " Each coloured line represents an individual who leaves home to carry out their activities. The colours of the lines represent the residents’ chosen mode of transport.                               Visualization: Linköping University , Datageneration DTCC, Chalmers",
+                    "Datasource": "",
+                    "Legend1": "mobility_eng_HR_stor",
+                    "Legend2": "",
+                    "Default": true,
+                    "Idle": true,
+                    "Filenames": "CleanColor/Black,MobilityMedia/MobilityMap"
+                }
+            ]
+        }
+    ]
+}

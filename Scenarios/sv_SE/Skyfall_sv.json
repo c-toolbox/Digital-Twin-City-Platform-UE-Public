@@ -1,0 +1,103 @@
+{
+    "Title": "Skyfall",
+    "Sections": [
+        {
+            "Label1": "Scenarios utan åtgärder",
+            "SectionObject": [
+                {
+                    "Title": "Maxdjup 100-årsregn, nuläge",
+                    "Text1": "Ett 100-årsregn är ett extremt skyfall som statistiskt sett inträffar en gång på 100 år.Man vet dock inte när det inträffar.",
+                    "Text2": "Detta datalager visar beräknade maximala vattendjup för dagens situation.",
+                    "Datasource": "",
+                    "Legend1": "maxdjup_nuläge_HR_stor",
+                    "Legend2": "",
+                    "Default": true,
+                    "Idle": false,
+                    "Filenames": "Skyfall/Vattendjup nuläge"
+                },
+                {
+                    "Title": "Maxflöde 100-årsregn, nuläge",
+                    "Text1": "Ett 100-årsregn är ett extremt skyfall som statistiskt sett inträffar en gång på 100 år.Man vet dock inte när det inträffar.",
+                    "Text2": "Detta datalager visar beräknade maximala ytvattenflöden för dagens situation.",
+                    "Datasource": "",
+                    "Legend1": "maxflöde_nuläge_HR_stor_text",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": true,
+                    "Filenames": "Skyfall/Ytvattenflöden nuläge"
+                },
+                {
+                    "Title": "Beräknad varaktighet (>0,2 m), nuläge",
+                    "Text1": "Ett 100-årsregn är ett extremt skyfall som statistiskt sett inträffar en gång på 100 år.Man vet dock inte när det inträffar.",
+                    "Text2": "Detta datalager visar hur länge vatten djupare än 0,2 m beräknas ligga kvar på marken utifrån dagens situation.",
+                    "Datasource": "",
+                    "Legend1": "varaktighet_nuläge_HR",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "Skyfall/Varaktighet nuläge"
+                },
+                {
+                    "Title": "Strukturplan",
+                    "Text1": "Ett 100-årsregn är ett extremt skyfall som statistiskt sett inträffar en gång på 100 år.Man vet dock inte när det inträffar.",
+                    "Text2": "Detta datalager visar på områdets strukturplan. Här kan man se de olika åtgärder som planeras för att minska de extrema skyfallens påverkan på staden.",
+                    "Datasource": "",
+                    "Legend1": "strukturplan_HR_stor_text",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "Skyfall/Strukturplansområden,Skyfall/Styrning,Skyfall/Skyfallsyta,Skyfall/Skyfallsled,Skyfall/Högvattenskydd,Skyfall/Högvattenskydd öppningar"
+                }
+            ]
+        },
+        {
+            "Label1": "Scenarios med åtgärd",
+            "SectionObject": [
+                {
+                    "Title": "Maxdjup 100-årsregn, åtgärd",
+                    "Text1": "Ett 100-årsregn är ett extremt skyfall som statistiskt sett inträffar en gång på 100 år.Man vet dock inte när det inträffar.",
+                    "Text2": "Detta datalager visar beräknade maximala vattendjup med åtgärder gjorda.",
+                    "Datasource": "",
+                    "Legend1": "maxdjup_åtgärd_HR_stor",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "Skyfall/Vattendjup åtgärd"
+                },
+                {
+                    "Title": "Maxflöde 100-årsregn, åtgärd",
+                    "Text1": "Ett 100-årsregn är ett extremt skyfall som statistiskt sett inträffar en gång på 100 år.Man vet dock inte när det inträffar.",
+                    "Text2": "Detta datalager visar beräknade maximala ytvattenflöden med åtgärder gjorda.",
+                    "Datasource": "",
+                    "Legend1": "maxflöde_åtgärd_HR_stor_text",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "Skyfall/Ytvattenflöden åtgärd,Skyfall/Högvattenskydd,Skyfall/Högvattenskydd öppningar"
+                },
+                {
+                    "Title": "Beräknad varaktighet (>0,2 m), nuläge",
+                    "Text1": "Ett 100-årsregn är ett extremt skyfall som statistiskt sett inträffar en gång på 100 år.Man vet dock inte när det inträffar.",
+                    "Text2": "Detta datalager visar hur länge vatten djupare än 0,2 m beräknas ligga kvar på marken med åtgärder gjorda.",
+                    "Datasource": "",
+                    "Legend1": "varaktighet_efter_åtgärd_HR",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "Skyfall/Varaktighet åtgärd"
+                },
+                {
+                    "Title": "Förändrat maximalt vattendjup",
+                    "Text1": "Ett 100-årsregn är ett extremt skyfall som statistiskt sett inträffar en gång på 100 år.Man vet dock inte när det inträffar.",
+                    "Text2": "Detta datalager visar strukturplanens effekt på maximala vattendjup med åtgärder gjorda. Ett negativt djup (blå färg) innebär att vattendjupet minskat till följd av åtgärderna  medan ett positivt djup (röd färg) innebär att vattendjupet ökat.",
+                    "Datasource": "",
+                    "Legend1": "",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "No-Data"
+                }
+            ]
+        }
+    ]
+}

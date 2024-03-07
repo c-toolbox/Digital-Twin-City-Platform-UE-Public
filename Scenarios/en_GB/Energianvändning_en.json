@@ -1,0 +1,56 @@
+{
+    "Title": "Energy use",
+    "Sections": [
+        {
+            "Label1": "",
+            "SectionObject": [
+                {
+                    "Title": "Energy labels of buildings",
+                    "Text1": "This data set shows the energy labels of buildings. The labels A-G are based on the energy use requirements imposed on new buildings that are being built today. ",
+                    "Text2": "Visualization: DTCC, Chalmers",
+                    "Datasource": "",
+                    "Legend1": "energy_labels_HR_big",
+                    "Legend2": "",
+                    "Default": true,
+                    "Idle": true,
+                    "Filenames": "Building/Building Energy"
+                },
+                {
+                    "Title": "Energy demand per unit area",
+                    "Text1": "This data set shows the hotspots of annual (primary) energy demand for heating and electricity in buildings.Based on a computational energy model for the year 2020.",
+                    "Text2": "Visualization: DTCC, Chalmers",
+                    "Datasource": "",
+                    "Legend1": "Annual_energy_need_HR_dec1",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "Building/Building Energy Heatmap"
+                },
+                {
+                    "Title": "Hours of sunshine,Summer",
+                    "Text1": "This data set shows the number of hours of sunshine for the longest(summer solstice 21/6) day of the year. 
+The visualisation begins just before sunrise and ends shortly after sunset.",
+                    "Text2": "Visualization Linköpings Universitet, Datageneration DTCC, Chalmers",
+                    "Datasource": "",
+                    "Legend1": "Dagsljusnivå_HR_dec1",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "SunlightMedia/SunlightWinter"
+                },
+                {
+                    "Title": "Hours of sunshine,Winter",
+                    "Text1": "This data set shows the number of hours of sunshine for the shortest(winter solstice 21/12) day of the year. 
+The visualisation begins just before sunrise and ends shortly after sunset.",
+                    "Text2": "Visualization Linköpings Universitet, Datageneration DTCC, Chalmers",
+                    "Datasource": "",
+                    "Legend1": "Dagsljusnivå_HR_dec1",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "SunlightMedia/SunlightSummer"
+                }
+            ]
+        }
+    ]
+}

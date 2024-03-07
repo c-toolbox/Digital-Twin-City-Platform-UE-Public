@@ -1,0 +1,175 @@
+{
+    "Title": "Favoriter",
+    "Sections": [
+        {
+            "Label1": "",
+            "SectionObject": [
+                {
+                    "Title": "Byggplaner/hav 1",
+                    "Text1": "Framtida byggnationer visas tillsammans med havsnivåhöjning 2070.",
+                    "Text2": "",
+                    "Datasource": "",
+                    "Legend1": "",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "SeaLevelRise/Year 2070,FutureCity/newInfrastructure,FutureCity/newPark,FutureCity/2011_buildings,FutureCity/2025_buildings,FutureCity/2035_buildings,FutureCity/2050_buildings"
+                },
+                {
+                    "Title": "Byggplan/skyfall 1",
+                    "Text1": "Framtida byggnationer och maximalt vattendjup vid ett 100-årsregn utan åtgärder gjorda.",
+                    "Text2": "",
+                    "Datasource": "",
+                    "Legend1": "",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "FutureCity/newInfrastructure,FutureCity/newPark,FutureCity/2011_buildings,FutureCity/2025_buildings,FutureCity/2035_buildings,FutureCity/2050_buildings"
+                },
+                {
+                    "Title": "Byggplan/skyfall 2",
+                    "Text1": "Framtida byggnationer och maximalt vattendjup vid ett 100-årsregn med åtgärder gjorda.",
+                    "Text2": "",
+                    "Datasource": "",
+                    "Legend1": "",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "FutureCity/newInfrastructure,FutureCity/newPark,FutureCity/2011_buildings,FutureCity/2025_buildings,FutureCity/2035_buildings,FutureCity/2050_buildings"
+                },
+                {
+                    "Title": "Byggplaner/buller",
+                    "Text1": "Framtida byggnationer och bullersimulering längs med Gibraltargatan.",
+                    "Text2": "",
+                    "Datasource": "",
+                    "Legend1": "",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "NoiseMedia/Noise-Media,FutureCity/newInfrastructure,FutureCity/newPark,FutureCity/2011_buildings,FutureCity/2025_buildings,FutureCity/2035_buildings,FutureCity/2050_buildings"
+                },
+                {
+                    "Title": "Många lager...",
+                    "Text1": "Här har vi samlat en blandning av en massa lager samtidigt. Mycket information blir lätt för mycket information...",
+                    "Text2": "Kartor, ortofoto, havsnivåhöjning, energianvändning, byggnadsdata, buller, stadsutveckling, Västtrafik, skyfall, mobilitet och sevärdheter.",
+                    "Datasource": "",
+                    "Legend1": "",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "Orthos/Ortofoto 1998,FutureCity/newInfrastructure,FutureCity/newPark,FutureCity/2011_buildings,FutureCity/2025_buildings,FutureCity/2035_buildings,FutureCity/2050_buildings,vasttrafik_livemap/bus,vasttrafik_livemap/tram,vasttrafik_livemap/train,vasttrafik_livemap/boat"
+                },
+                {
+                    "Title": "Datavisualisering",
+                    "Text1": "Visualisering handlar bland annat om att göra en stor och komplex datamängd begriplig.",
+                    "Text2": "",
+                    "Datasource": "",
+                    "Legend1": "",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": true,
+                    "Filenames": "No-Data"
+                },
+                {
+                    "Title": "Globala målen",
+                    "Text1": "En digital tvillingstad kan hjälpa oss i arbetet med De globala målen och en hållbar utveckling.",
+                    "Text2": "",
+                    "Datasource": "",
+                    "Legend1": "",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "CleanColor/Goals_sv"
+                },
+                {
+                    "Title": "Vit",
+                    "Text1": "",
+                    "Text2": "",
+                    "Datasource": "",
+                    "Legend1": "",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Orange",
+                    "Text1": "",
+                    "Text2": "",
+                    "Datasource": "",
+                    "Legend1": "",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "CleanColor/orange"
+                },
+                {
+                    "Title": "Gul",
+                    "Text1": "",
+                    "Text2": "",
+                    "Datasource": "",
+                    "Legend1": "",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "CleanColor/Yellow"
+                },
+                {
+                    "Title": "Grön",
+                    "Text1": "",
+                    "Text2": "",
+                    "Datasource": "",
+                    "Legend1": "",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "CleanColor/Green"
+                },
+                {
+                    "Title": "Blå",
+                    "Text1": "",
+                    "Text2": "",
+                    "Datasource": "",
+                    "Legend1": "",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "CleanColor/Blue"
+                },
+                {
+                    "Title": "Lime Grön",
+                    "Text1": "",
+                    "Text2": "",
+                    "Datasource": "",
+                    "Legend1": "",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "CleanColor/lime_green"
+                },
+                {
+                    "Title": "Magenta",
+                    "Text1": "",
+                    "Text2": "",
+                    "Datasource": "",
+                    "Legend1": "",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "CleanColor/magenta"
+                },
+                {
+                    "Title": "Ljus Blå",
+                    "Text1": "",
+                    "Text2": "",
+                    "Datasource": "",
+                    "Legend1": "",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "CleanColor/brightblue"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "Title": "Urban development",
+    "Sections": [
+        {
+            "Label1": "",
+            "SectionObject": [
+                {
+                    "Title": "Urban development, future construction\n-2011\n-2025\n-2035\n-2050",
+                    "Text1": "Urban development, future construction. The colours show roughly when the development is planned for completion.\n",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "infrastructure_plan_HR_big_text",
+                    "Legend2": "",
+                    "Default": true,
+                    "Idle": true,
+                    "Filenames": "FutureCity/newInfrastructure,FutureCity/newPark,FutureCity/2011_buildings,FutureCity/2025_buildings,FutureCity/2035_buildings,FutureCity/2050_buildings"
+                }
+            ]
+        }
+    ]
+}

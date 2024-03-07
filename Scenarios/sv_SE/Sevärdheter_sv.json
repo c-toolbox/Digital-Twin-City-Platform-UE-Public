@@ -1,0 +1,225 @@
+{
+    "Title": "Sevärdheter",
+    "Sections": [
+        {
+            "Label1": "",
+            "SectionObject": [
+                {
+                    "Title": "Universeum",
+                    "Text1": "Universeum\n\nHär är du! Sveriges nationella vetenskapscenter placerat vid Korsvägen i Göteborg längs med evenemangsstråket.",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "Universeum1024x1024",
+                    "Legend2": "",
+                    "Default": true,
+                    "Idle": true,
+                    "Position": "57.69553385592515, 11.98950845231035",
+                    "Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Feskekörka",
+                    "Text1": "Feskekörka\n\nUrsprungligen kallad Fiskhallen, invigd 1874. En ikonisk fisk- och skaldjursmarknad som fått sitt namn för att den liknar en kyrka.",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "feskekörka",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.701039088084, 11.957812497211389",
+                    "Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Lilla bommen",
+                    "Text1": "Lilla bommen – Läppstiftet\n\nNamnet Lilla Bommen syftar både på skyskrapan, ett torg samt området kring gästhamnen.",
+                    "Text2": "I folkmun är denna 86 meters röd- och vitrandiga byggnad nog mest känd som Läppstiftet. Några andra namn som förekommer är Skanskaskrapan och Vattenståndet.",
+                    "Datasource": "",
+                    "Legend1": "lillabommen",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.71339325166829, 11.967539175240208",
+                    "Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Liseberg",
+                    "Text1": "Liseberg\n\nNordens största nöjespark. Invigd under Jubileumsutställningen i Göteborg 1923.",
+                    "Text2": "Är sedan många år Sveriges populäraste besöksmål.",
+                    "Datasource": "",
+                    "Legend1": "Liseberg",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.69492394746997, 11.992133494569146",
+                    "Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Kopparmärra",
+                    "Text1": "Kopparmärra\n\nKarl IX:s ryttarstaty. Har stått på sin nuvarande plats vid Kungsportsplatsen sedan 1936. Som Hertig Karl grundade han föregångaren till det nuvarande Göteborg, kallat Karl IX:s Göteborg.",
+                    "Text2": "Namnet Kopparmärra är ett tydligt exempel på göteborgshumorn då kungen sitter på en hingst gjord av brons (88 procent koppar och 12 procent tenn). Bildkälla: Wikimedia, Mattias Blomgren",
+                    "Datasource": "",
+                    "Legend1": "Kopparmärra1024x1024",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.70458423244316, 11.969741131154152",
+                    "Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Poseidon",
+                    "Text1": "Poseidon\n\nPlacerad på Götaplatsen, vänd ner mot Kungsportsavenyn, är Poseidon ett av Göteborgs mest kända landmärken.",
+                    "Text2": "Bronsstatyn skapades av Carl Milles och invigdes 1931.",
+                    "Datasource": "",
+                    "Legend1": "poseidon",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.69719055937935, 11.979598660939955",
+                    "Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Göteborgsoperan",
+                    "Text1": "Göteborgsoperan\n\nGöteborgsoperan ligger vid Lilla Bommen och invigdes 1994 under tre kvällar i rad. Den tredje kvällen hälsades huset välkommet till kajen av sin gudmor, hovsångerskan Birgit Nilsson.",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "goteborgsoperan",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.71065338555662, 11.96321796039706","Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Slottsskogen",
+                    "Text1": "Slottsskogen\n\nOfficiellt namn är Slottsskogsparken. Parken ligger i en skog som har sina rötter i Älvsborgs kungsladugårds marker sedan 600 år tillbaka. Den har varit öppen för allmänheten sedan 1876.",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "slottsskogen",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.6865376291601, 11.942198877458628","Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Botaniska",
+                    "Text1": "Botaniska\n\nGöteborgs botaniska trädgård invigdes i samband med Jubileumsutställningen 1923. Den omfattar idag 175 hektar (40 hektar odlad) där delar av Änggårdsbergens naturreservat ingår.",
+                    "Text2": "Här odlas cirka 16 000 olika arter varav 4 000 i växthus.",
+                    "Datasource": "",
+                    "Legend1": "botaniskaträdgården",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.68228820587804, 11.950013296674497","Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Skansen Lejonet",
+                    "Text1": "Skansen Lejonet\n\nSkansen Lejonet är en 1600-talsbefästning som ligger på Gullberget. Används idag som bland annat festlokal. Byggnadsminne sedan 1935.",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "skansenlejonet",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.71434447629241, 11.989441748464678","Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Skansen Kronan",
+                    "Text1": "Skansen Kronan\n\nSkansen Kronan är en 1600-talsbefästning som ligger på Risåsberget (även kallat Skansberget). Används idag som bland annat festlokal och café. Byggnadsminne sedan 1935.",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "skansenkronan",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.69604722132637, 11.955352592896999","Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Kronhuset",
+                    "Text1": "Kronhuset\n\nKronhuset är en av Göteborgs älsta byggnader. Det uppfördes 1643-1654 och användes då som tyghus, det vill säga lager för kanoner och andra vapen, men även som matförråd. Bildkälla: Wikimedia, Andrzej Otrębski",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "Kronhuset1024x1024",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.707882565682766, 11.963680784393313","Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Gustaf Adolfs Torg",
+                    "Text1": "Gustaf Adolfs Torg\n\nEfter uppförandet av Gustav II Adolfsstatyn (1854) kom Stora torget att istället kallas för Gustaf Adolfs torg. Statyn föreställer Gustav II Adolf pekandes med höger hand ned mot torget samtidigt som han tittar i fjärran.",
+                    "Text2": "Detta avbildar det tänkta tillfället när kungen ska ha uttalat \"Här ska staden ligga!\". Symboliskt representerar statyn därmed tillblivelsen av staden Göteborg.",
+                    "Datasource": "",
+                    "Legend1": "gustavadolfstorg",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.7071320981395, 11.96682197912706","Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Trädgårdsföreningen",
+                    "Text1": "Trädgårdsföreningen\n\nStadspark i centrala Göteborg som rymmer rosarium, växthus, palmhus, caféer, restaurang och en utomhusscen. Byggnadsminne sedan 1992.",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "trädgårdsföreningen",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.70526100435004, 11.975520140462423","Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Scandinavium",
+                    "Text1": "Scandinavium\n\nGöteborgs största inomhusarena för både sportarrangemang och konserter. Hemmaarena för Frölunda HC. Bildkälla: Wikimedia, Mattias Blomgren",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "Scandinavium1024x1024",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.69923554813713, 11.987653790095274","Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Gamla Ullevi",
+                    "Text1": "Gamla Ullevi\n\nFotbollsarena med publikkapacitet på drygt 18 000 åskådare. Ligger på samma plats som den tidigare arenan Gamla Ullevi. Hemmaarena för IFK Göteborg, Gais och Örgryte IS.",
+                    "Text2": "Nationalarena för Sveriges damlandslag i fotboll. Bildkälla: Wikimedia, Averater",
+                    "Datasource": "",
+                    "Legend1": "GamlaUllevi1024x1024",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.70627109159362, 11.98015516755893","Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Ullevi",
+                    "Text1": "Ullevi\n\nUllevi Stadion, av många kallat Nya Ullevi, är Nordens största evenemangsarena. Invigd 1958 då Sverige arrangerade Världsmästerskapet i fotboll.",
+                    "Text2": "Publikrekordet, 70 144 personer, är från Håkan Hellströms andra konsert 2016. Bildkälla: Wikimedia, Andreas Palmnäs",
+                    "Datasource": "",
+                    "Legend1": "NyaUllevi1024x1024",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.70588870983945, 11.987333099545175","Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Karlatornet",
+                    "Text1": "Karlatornet\n\nKarlatornet är under uppbyggnad och beräknas bli färdigt 2023. Den planerade höjden är 245 meter vilket då gör det till Nordens högsta byggnad. Bildkälla: Wikimedia, Vogler",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "Karlatornet1024x1024",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.70982373885467, 11.939368115627385","Filenames": "CleanColor/White"
+                },
+                {
+                    "Title": "Hisingsbron",
+                    "Text1": "Hisingsbron\n\nInvigd under sommaren 2021 är den en av Göteborgs nyare landmärken där den enar stadens två halvor över Göta älv. Bron är en lyftbro i stål och betong.",
+                    "Text2": "När den är stängd har den en seglingsfri höjd på 12 meter och i öppet läge 28 meter. De fyra pylonerna har en höjd på cirka 35 meter. Bildkälla: Alexander Ljungqvist/Fastighetskontoret Göteborgs stad, 2021.",
+                    "Datasource": "",
+                    "Legend1": "1024x1024hisingsbron_alexander-ljungqvi",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Position": "57.71489479272818, 11.967907363902109","Filenames": "CleanColor/White"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,54 @@
+{
+    "Title": "Energianvändning",
+    "Sections": [
+        {
+            "Label1": "",
+            "SectionObject": [
+                {
+                    "Title": "Energiklasser för byggnader",
+                    "Text1": "Detta datalager visar energiklasser per byggnad. Indelningen i de olika klasserna A-G är gjorda utifrån hur energianvändningen för en byggnad förhåller sig procenturellt till dagens byggnormer.",
+                    "Text2": "Visualisering DTCC, Chalmers",
+                    "Datasource": "",
+                    "Legend1": "energiklasser_HR_stor_text",
+                    "Legend2": "",
+                    "Default": true,
+                    "Idle": true,
+                    "Filenames": "Building/Building Energy"
+                },
+                {
+                    "Title": "Energibehov per areaenhet",
+                    "Text1": "Detta datalager visar hotspots för det årliga (primära) energibehovet i byggnader för uppvärmning och elektricitet. Baserad på en energiberäkningsmodell för år 2020.",
+                    "Text2": "Visualisering DTCC, Chalmers",
+                    "Datasource": "",
+                    "Legend1": "Arligt_energibehov_HR_dec1",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "Building/Building Energy Heatmap"
+                },
+                {
+                    "Title": "Soltimmar Sommar",
+                    "Text1": "Detta datalager visar antal soltimmar för årets längsta (sommarsolståndet 21/6). Visualiseringen börjar strax innan soluppgång och slutar strax efter.",
+                    "Text2": "Visualisering DTCC, Chalmers",
+                    "Datasource": "",
+                    "Legend1": "Dagsljusnivå_HR_dec1",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "SunlightMedia/SunlightWinter"
+                },
+                {
+                    "Title": "Soltimmar Vinter",
+                    "Text1": "Detta datalager visar antal soltimmar för årets  kortaste dag (vintersolståndet 21/12). Visualiseringen börjar strax innan soluppgång och slutar strax efter.",
+                    "Text2": "Visualisering DTCC, Chalmers",
+                    "Datasource": "",
+                    "Legend1": "Dagsljusnivå_HR_dec1",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "SunlightMedia/SunlightSummer"
+                }
+            ]
+        }
+    ]
+}
