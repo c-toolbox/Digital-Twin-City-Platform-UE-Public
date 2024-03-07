@@ -1,0 +1,42 @@
+build-job:
+  stage: build
+  tags:
+    - windows
+    - unreal
+  script:
+    - $UE4_VERSION = ue4-cli-rs --getrootdir
+    - echo "Use $UE4_VERSION for build"
+    - ue4 setroot $UE4_VERSION
+    - ue4 build
+    - ue4 clearroot
+    - ue4 root
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+  cache:
+    key: build-cache
+    paths:
+      - Intermediate
+      - Binaries
+
+deploy-manually:
+  stage: deploy
+  when: manual
+  tags:
+    - windows
+    - unreal
+  script:
+    - $UE4_VERSION = ue4-cli-rs --getrootdir
+    - echo "Use $UE4_VERSION for build"
+    - ue4 setroot $UE4_VERSION
+    - ue4 package Development
+    - ue4 clearroot
+    - iscc digitaltwin.iss
+  artifacts:
+    paths:
+      - DigitalTwinSetup*
+    expire_in: 30 days
+  cache:
+    key: build-cache
+    paths:
+      - Intermediate
+      - Binaries

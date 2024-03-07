@@ -1,0 +1,32 @@
+{
+    "Title": "Mobilitet",
+    "Sections": [
+        {
+            "Label1": "",
+            "SectionObject": [
+                {
+                    "Title": "Mobilitet",
+                    "Text1": "Denna visualisering visar boendes förflyttningar under ett dygn innanför vallgraven i Göteborgs centrum. Simuleringen använder en syntetisk befolkning baserad på demografisk data (SCB). Data från en trafikanalys (Travel Survey – RVU Trafikanalys 2017) har använts för att tilldela den syntetiska befolkningen aktiviteter under en dag.",
+                    "Text2": " Varje färgad linje representerar en individ som ger sig av hemifrån för att utföra sina aktivtiteter. Linjernas färger representerar hur de boende valt att transportera sig. Visualisering DTCC, Chalmers",
+                    "Datasource": "",
+                    "Legend1": "mobilitet_HR_stor",
+                    "Legend2": "",
+                    "Default": true,
+                    "Idle": true,
+                    "Filenames": "CleanColor/Black,MobilityMedia/MobilityMap"
+                },
+                {
+                    "Title": "No-Data",
+                    "Text1": "No-Data",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "Location – Inom Vallgraven, Göteborg, Sweden Street Network – Trafikverket Building Data – Lantmateriet Point of Interests - OpenStreetMaps Population and Demographics – SCB (2021) Travel Survey – RVU Trafikanalys (2017)",
+                    "Legend2": "",
+                    "Default": true,
+                    "Idle": true,
+                    "Filenames": "No-Data"
+                }
+            ]
+        }
+    ]
+}

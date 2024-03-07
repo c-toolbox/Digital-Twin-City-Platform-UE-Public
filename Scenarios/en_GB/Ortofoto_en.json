@@ -1,0 +1,169 @@
+{
+    "Title": "Ortho photo",
+    "Sections": [
+        {
+            "Label1": "Present day",
+            "SectionObject": [
+                {
+                    "Title": "Year 2020",
+                    "Text1": "Orthophoto\n\nPhoto taken at a right angle to the ground.",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "No-Data",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": true,
+                    "Filenames": "Orthos/Ortofoto 2020"
+                }
+            ]
+        },
+        {
+            "Label1": "Historical photos",
+            "SectionObject": [
+                {
+                    "Title": "Year 1931",
+                    "Text1": "Historical orthophoto\n\nPhoto taken at a right angle to the ground. Depending on technology and the passing of time, matching to the map is not perfect, since ground conditions may have changed, among other things.",
+                    "Text2": "It can be difficult to interpret older images, since they differ a lot from the model. Look carefully at the harbour area. There have been major changes over the years.",
+                    "Datasource": "",
+                    "Legend1": "No-Data",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "Orthos/Ortofoto 1931"
+                },
+                {
+                    "Title": "Year 1942",
+                    "Text1": "Historical orthophoto\n\nPhoto taken at a right angle to the ground. Depending on technology and the passing of time, matching to the map is not perfect, since ground conditions may have changed, among other things.",
+                    "Text2": "It can be difficult to interpret older images, since they differ a lot from the model. Look carefully at the harbour area. There have been major changes over the years.",
+                    "Datasource": "",
+                    "Legend1": "No-Data",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "Orthos/Ortofoto 1942"
+                },
+                {
+                    "Title": "Year 1956-1963",
+                    "Text1": "Historical orthophoto\n\nPhoto taken at a right angle to the ground. Depending on technology and the passing of time, matching to the map is not perfect, since ground conditions may have changed, among other things.",
+                    "Text2": "It can be difficult to interpret older images, since they differ a lot from the model. Look carefully at the harbour area. There have been major changes over the years.",
+                    "Datasource": "",
+                    "Legend1": "No-Data",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "Orthos/Ortofoto 1956-1963"
+                },
+                {
+                    "Title": "Year 1970",
+                    "Text1": "Historical orthophoto\n\nPhoto taken at a right angle to the ground. Depending on technology and the passing of time, matching to the map is not perfect, since ground conditions may have changed, among other things.",
+                    "Text2": "It can be difficult to interpret older images, since they differ a lot from the model. Look carefully at the harbour area. There have been major changes over the years.",
+                    "Datasource": "",
+                    "Legend1": "No-Data",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "Orthos/Ortofoto 1970"
+                },
+                {
+                    "Title": "Year 1995",
+                    "Text1": "Historical orthophoto\n\nPhoto taken at a right angle to the ground. Depending on technology and the passing of time, matching to the map is not perfect, since ground conditions may have changed, among other things.",
+                    "Text2": "It can be difficult to interpret older images, since they differ a lot from the model. Look carefully at the harbour area. There have been major changes over the years.",
+                    "Datasource": "",
+                    "Legend1": "No-Data",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "Orthos/Ortofoto 1995"
+                },
+                {
+                    "Title": "Year 1998",
+                    "Text1": "Historical orthophoto\n\nPhoto taken at a right angle to the ground.",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "No-Data",
+                    "Legend2": "",
+                    "Default": true,
+                    "Idle": false,
+                    "Filenames": "Orthos/Ortofoto 1998"
+                },
+                {
+                    "Title": "Year 2001",
+                    "Text1": "Historical orthophoto\n\nPhoto taken at a right angle to the ground.",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "No-Data",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "Orthos/Ortofoto 2001"
+                },
+                {
+                    "Title": "Year 2003",
+                    "Text1": "Historical orthophoto\n\nPhoto taken at a right angle to the ground.",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "No-Data",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "Orthos/Ortofoto 2003"
+                },
+                {
+                    "Title": "Year 2006",
+                    "Text1": "Historical orthophoto\n\nPhoto taken at a right angle to the ground.",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "No-Data",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "Orthos/Ortofoto 2006"
+                },
+                {
+                    "Title": "Year 2008",
+                    "Text1": "Historical orthophoto\n\nPhoto taken at a right angle to the ground.",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "No-Data",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "Orthos/Ortofoto 2008"
+                },
+                {
+                    "Title": "Year 2010-2011",
+                    "Text1": "Historical orthophoto\n\nPhoto taken at a right angle to the ground.",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "No-Data",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "Orthos/Ortofoto 2010-2011"
+                },
+                {
+                    "Title": "Year 2015",
+                    "Text1": "Historical orthophoto\n\nPhoto taken at a right angle to the ground.",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "No-Data",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "Orthos/Ortofoto 2015"
+                },
+                {
+                    "Title": "Year 2017",
+                    "Text1": "Historical orthophoto\n\nPhoto taken at a right angle to the ground.",
+                    "Text2": "No-Data",
+                    "Datasource": "",
+                    "Legend1": "No-Data",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "Orthos/Ortofoto 2017"
+                }
+            ]
+        }
+    ]
+}

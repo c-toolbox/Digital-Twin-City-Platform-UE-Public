@@ -1,0 +1,103 @@
+{
+    "Title": "Skyfall",
+    "Sections": [
+        {
+            "Label1": "Scenarios without any action taken",
+            "SectionObject": [
+                {
+                    "Title": "Max. depth, 100-year rain event, current situation",
+                    "Text1": "A 100-year rain event is an extreme cloudburst that statistically occurs once every 100 years.\n\nHowever, you don’t know when it will occur.",
+                    "Text2": "This data set shows estimated maximum water depth for the current situation.",
+                    "Datasource": "",
+                    "Legend1": "max_depth_current_HR_big",
+                    "Legend2": "",
+                    "Default": true,
+                    "Idle": false,
+                    "Filenames": "CleanColor/White,Skyfall/Vattendjup nuläge"
+                },
+                {
+                    "Title": "Max. flow, 100-year rain event, current situation",
+                    "Text1": "A 100-year rain event is an extreme cloudburst that statistically occurs once every 100 years.\n\nHowever, you don’t know when it will occur.",
+                    "Text2": "This data set shows estimated maximum surface water flows for the current situation.",
+                    "Datasource": "",
+                    "Legend1": "max_flow_current_HR_big",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": true,
+                    "Filenames": "CleanColor/White,Skyfall/Ytvattenflöden nuläge"
+                },
+                {
+                    "Title": "Estimated duration (>0.2 m), current situation",
+                    "Text1": "A 100-year rain event is an extreme cloudburst that statistically occurs once every 100 years.\n\nHowever, you don’t know when it will occur.",
+                    "Text2": "This data set shows how long water deeper than 0.2 m is expected to remain on the ground based on the current situation.",
+                    "Datasource": "",
+                    "Legend1": "estimated_durations_current_HR",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "CleanColor/White,Skyfall/Varaktighet nuläge"
+                },
+                {
+                    "Title": "Infrastructure plan",
+                    "Text1": "A 100-year rain event is an extreme cloudburst that statistically occurs once every 100 years.\n\nHowever, you don’t know when it will occur.",
+                    "Text2": "This data set shows the infrastructure plan for the area. Here you can see the various measures planned to reduce the impact on the city from extreme cloudbursts.",
+                    "Datasource": "",
+                    "Legend1": "infrastructure_plan_HR_big_text",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "CleanColor/White,Skyfall/Strukturplansområden,Skyfall/Styrning,Skyfall/Skyfallsyta,Skyfall/Skyfallsled,Skyfall/Högvattenskydd,Skyfall/Högvattenskydd öppningar"
+                }
+            ]
+        },
+        {
+            "Label1": "Scenarios with action taken",
+            "SectionObject": [
+                {
+                    "Title": "Max. depth, 100-year rain event, action taken",
+                    "Text1": "A 100-year rain event is an extreme cloudburst that statistically occurs once every 100 years.\n\nHowever, you don’t know when it will occur.",
+                    "Text2": "This data set shows estimated maximum water depth with action taken.",
+                    "Datasource": "",
+                    "Legend1": "max_depth_actions_HR_big",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "Skyfall/Vattendjup åtgärd"
+                },
+                {
+                    "Title": "Max. flow, 100-year rain event, action taken",
+                    "Text1": "A 100-year rain event is an extreme cloudburst that statistically occurs once every 100 years.\n\nHowever, you don’t know when it will occur.",
+                    "Text2": "This data set shows estimated maximum surface water flows with action taken.",
+                    "Datasource": "",
+                    "Legend1": "max_flow_actions_HR_big",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "Skyfall/Ytvattenflöden åtgärd,Skyfall/Högvattenskydd,Skyfall/Högvattenskydd öppningar"
+                },
+                {
+                    "Title": "Estimated duration (>0.2 m), current situation",
+                    "Text1": "A 100-year rain event is an extreme cloudburst that statistically occurs once every 100 years.\n\nHowever, you don’t know when it will occur.",
+                    "Text2": "This data set shows how long water deeper than 0.2 m is expected to remain on the ground based on action having been taken.",
+                    "Datasource": "",
+                    "Legend1": "estimated_durations_current_HR",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "Skyfall/Varaktighet åtgärd"
+                },
+                {
+                    "Title": "Changed maximum water depth",
+                    "Text1": "A 100-year rain event is an extreme cloudburst that statistically occurs once every 100 years.\n\nHowever, you don’t know when it will occur.",
+                    "Text2": "This data set shows the effect of the infrastructure plan on maximum water depth with action taken. A negative depth (blue colour) means that the water depth has reduced as a result of the action taken, while a positive depth (red colour) means that the water depth has increased.",
+                    "Datasource": "",
+                    "Legend1": "No-Data",
+                    "Legend2": "",
+                    "Default": false,
+                    "Idle": false,
+                    "Filenames": "No-Data"
+                }
+            ]
+        }
+    ]
+}
