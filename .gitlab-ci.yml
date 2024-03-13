@@ -23,9 +23,6 @@ deploy-manually:
     - windows
     - unreal
   script:
-    - ls
-    - cd Saved/StageBuilds
-    - ls 
     - Compress-Archive -Path Saved\StagedBuilds\Windows  DigitalTwin.zip
 
   artifacts:
