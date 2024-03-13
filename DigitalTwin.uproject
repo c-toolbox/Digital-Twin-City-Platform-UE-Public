@@ -97,6 +97,7 @@
 		}
 	],
 	"TargetPlatforms": [
-		"WindowsNoEditor"
+		"WindowsNoEditor",
+		"Windows"
 	]
 }

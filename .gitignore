@@ -3,7 +3,7 @@ DerivedDataCache
 Intermediate
 Saved
 Build
-.idea
+.idea/
 .vscode
 .vs
 *.VC.db
