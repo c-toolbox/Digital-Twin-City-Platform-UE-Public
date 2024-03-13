@@ -1,7 +1,7 @@
 ﻿#include "EastSwedenTraffic.h"
 #include "Components/HierarchicalInstancedStaticMeshComponent.h"
 #include "GeoReferencingSystem.h"
-#include "ZeroMQCommunication.h"
+#include "DigitalTwin/Communication/ZeroMQCommunication.h"
 
 
 
@@ -147,10 +147,10 @@ void AEastSwedenTraffic::Update(const FTrafficData &Data) {
   if (Disable)
     return;
 
-  UE_LOG(LogTemp, Warning, TEXT("AEastSwedenTraffic::Update "));
-  UE_LOG(LogTemp, Warning, TEXT("AEastSwedenTraffic::Update Id  %s :"),*Data.Id);
-  UE_LOG(LogTemp, Warning, TEXT("AEastSwedenTraffic::Update Pos %s :"),*Data.Position.ToString());
-  UE_LOG(LogTemp, Warning, TEXT("AEastSwedenTraffic::Update Type %s :"),*Data.Type);
+  UE_LOG(LogTemp, Verbose, TEXT("AEastSwedenTraffic::Update "));
+  UE_LOG(LogTemp, Verbose, TEXT("AEastSwedenTraffic::Update Id  %s :"),*Data.Id);
+  UE_LOG(LogTemp, Verbose, TEXT("AEastSwedenTraffic::Update Pos %s :"),*Data.Position.ToString());
+  UE_LOG(LogTemp, Verbose, TEXT("AEastSwedenTraffic::Update Type %s :"),*Data.Type);
 
   AGeoReferencingSystem *Subsystem =
       AGeoReferencingSystem::GetGeoReferencingSystem(GetWorld());
@@ -182,7 +182,7 @@ void AEastSwedenTraffic::Update(const FTrafficData &Data) {
       AddNewMesh(Data.Type, Data.Id, Data.Color, EngineCoordinates);
     }
   } else {
-    UE_LOG(LogTemp, Log, TEXT("Error : Could not find geo-subsystem !"));
+    UE_LOG(LogTemp, Verbose, TEXT("Error : Could not find geo-subsystem !"));
   }
 }
 
