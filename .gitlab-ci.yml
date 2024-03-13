@@ -26,8 +26,8 @@ deploy-manually:
     - ls
     - cd Saved/StageBuilds
     - ls 
-    - Compress-Archive -Path Saved\StageBuilds\Windows  DigitalTwin.zip
-    #- iscc digitaltwin.iss
+    - Compress-Archive -Path C:\Gitlab-Runner\builds\RpajUN3z\0\Exploranation\City\digitaltwincity-plattform\digitaltwinnkpg-ue5\Saved\StagedBuilds\Windows  DigitalTwin.zip
+
   artifacts:
     paths:
       - Saved\StagedBuilds\Windows
