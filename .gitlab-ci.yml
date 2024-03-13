@@ -24,6 +24,8 @@ deploy-manually:
     - unreal
   script:
     - ls
+    - cd Saved/StageBuilds
+    - ls 
     - Compress-Archive -Path Saved\StageBuilds\Windows  DigitalTwin.zip
     #- iscc digitaltwin.iss
   artifacts:
