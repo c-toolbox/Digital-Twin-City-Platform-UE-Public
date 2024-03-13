@@ -1,8 +1,13 @@
 # Twin City Platform 🏡
 
-**Version:** 1.0  
-**Tech lead:** Erik Junholm  
-**Product Owner:** Erik Junholm
+Copyright 2024, Linköping University, All rights reserved.
+
+
+**Version:** 1.0.1
+
+*Product Owner:* Erik Junholm
+*Tech lead:* Erik Junholm  
+
 
 **Developers:** David Beuger, Anders Kettisen  
 **Hall of Fame:** Mikael Pettersson
@@ -21,12 +26,12 @@ This is the home of the Digital Twin project.
 
 This project has been built and tested on:
 - Windows
-- Unreal Engine 4.27
+- Unreal Engine 5.1.1
 - Visual Studio 2019
 
 ## Plugins
 
-The GeoReferencing plugin from UE 4.27 is currently used in the Digital Twin.
+The GeoReferencing plugin from UE 5.1.1 is currently used in the Digital Twin.
 
 ## Dependencies
 
