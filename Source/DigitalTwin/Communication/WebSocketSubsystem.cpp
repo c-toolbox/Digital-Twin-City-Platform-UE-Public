@@ -85,8 +85,8 @@ void UWebSocketSubsystem::Initialize(FSubsystemCollectionBase &Collection) {
   Socket->Connect();
   
   TSharedPtr<FJsonObject> JsonObject = MakeShared<FJsonObject>();
-  //JsonObject->SetStringField("token", "0545fc9a-258a-402d-a844-69063a00af58");
-  JsonObject->SetStringField("token", "c2e5879a-4b66-45f5-adfa-5385ed18ca0c");
+  JsonObject->SetStringField("token", "0545fc9a-258a-402d-a844-69063a00af58");
+  //JsonObject->SetStringField("token", "c2e5879a-4b66-45f5-adfa-5385ed18ca0c");
   FString OutputString;
   TSharedRef<TJsonWriter<>> Writer = TJsonWriterFactory<>::Create(&OutputString);
   FJsonSerializer::Serialize(JsonObject.ToSharedRef(), Writer);
