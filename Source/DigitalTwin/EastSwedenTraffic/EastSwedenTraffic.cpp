@@ -1,7 +1,16 @@
 ﻿#include "EastSwedenTraffic.h"
 #include "Components/HierarchicalInstancedStaticMeshComponent.h"
 #include "GeoReferencingSystem.h"
-#include "ZeroMQCommunication.h"
+#include "DigitalTwin/Communication/ZeroMQCommunication.h"
+
+
+
+float Remap(const float value, const float low_1 , const float high_1 ,
+            const float low_2 , const float high_2) {
+  
+  return low_2 + (value - low_1 ) * (high_2 - low_2 ) / ( high_1 - low_1);
+}
+
 
 AEastSwedenTraffic::AEastSwedenTraffic() : TrafficMesh(nullptr) {
   PrimaryActorTick.bCanEverTick = true;
@@ -72,7 +81,7 @@ void AEastSwedenTraffic::FromWgsToProjectionCoordinates(
   FGeographicCoordinates Geographic;
   Geographic.Latitude = WgsPosition.Y;
   Geographic.Longitude = WgsPosition.Z;
-  Geographic.Altitude = 50.0f;
+  Geographic.Altitude = 10.0f;
 
   FCartesianCoordinates Cartesian_Coordinates;
   Subsystem->GeographicToProjected(Geographic, Cartesian_Coordinates);
@@ -138,10 +147,10 @@ void AEastSwedenTraffic::Update(const FTrafficData &Data) {
   if (Disable)
     return;
 
-  UE_LOG(LogTemp, Warning, TEXT("AEastSwedenTraffic::Update "));
-  UE_LOG(LogTemp, Warning, TEXT("AEastSwedenTraffic::Update Id  %s :"),*Data.Id);
-  UE_LOG(LogTemp, Warning, TEXT("AEastSwedenTraffic::Update Pos %s :"),*Data.Position.ToString());
-  UE_LOG(LogTemp, Warning, TEXT("AEastSwedenTraffic::Update Type %s :"),*Data.Type);
+  UE_LOG(LogTemp, Verbose, TEXT("AEastSwedenTraffic::Update "));
+  UE_LOG(LogTemp, Verbose, TEXT("AEastSwedenTraffic::Update Id  %s :"),*Data.Id);
+  UE_LOG(LogTemp, Verbose, TEXT("AEastSwedenTraffic::Update Pos %s :"),*Data.Position.ToString());
+  UE_LOG(LogTemp, Verbose, TEXT("AEastSwedenTraffic::Update Type %s :"),*Data.Type);
 
   AGeoReferencingSystem *Subsystem =
       AGeoReferencingSystem::GetGeoReferencingSystem(GetWorld());
@@ -156,6 +165,8 @@ void AEastSwedenTraffic::Update(const FTrafficData &Data) {
       auto Update_Candidate = Traffic_DMap[Data.Id];
       FromWgsToProjectionCoordinates(Data.Position, Subsystem,
                                      EngineCoordinates);
+      EngineCoordinates.X = Remap(EngineCoordinates.X, 0.0f , 2560.0f ,0.0f, 2400.0f);
+      EngineCoordinates.Y = Remap(EngineCoordinates.Y, 0.0f , 1930.0f ,0.0f, 1800.0f);  
       UpdateVisualEntity(Data, EngineCoordinates, Update_Candidate);
       Traffic_DMap[Data.Id] = Update_Candidate;
 
@@ -163,13 +174,15 @@ void AEastSwedenTraffic::Update(const FTrafficData &Data) {
       FVector EngineCoordinates;
       FromWgsToProjectionCoordinates(Data.Position, Subsystem,
                                      EngineCoordinates);
+      EngineCoordinates.X = Remap(EngineCoordinates.X, 0.0f , 2560.0f ,0.0f, 2400.0f);
+      EngineCoordinates.Y = Remap(EngineCoordinates.Y, 0.0f , 1930.0f ,0.0f, 1800.0f);  
       FVisualTraffic Entity;
       CreateVisualEntity(Data, EngineCoordinates, Entity);
       Traffic_DMap.Add(Data.Id, Entity);
       AddNewMesh(Data.Type, Data.Id, Data.Color, EngineCoordinates);
     }
   } else {
-    UE_LOG(LogTemp, Log, TEXT("Error : Could not find geo-subsystem !"));
+    UE_LOG(LogTemp, Verbose, TEXT("Error : Could not find geo-subsystem !"));
   }
 }
 
