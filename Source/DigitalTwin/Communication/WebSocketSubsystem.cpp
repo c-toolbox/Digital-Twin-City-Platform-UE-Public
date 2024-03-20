@@ -2,6 +2,12 @@
 #include "../Datasets/ScenarioSubsystem.h"
 #include "JsonObjectConverter.h"
 
+
+constexpr unsigned int Str2INT(const char* Str, const int H = 0)
+{
+  return !Str[H] ? 5381 : (Str2INT(Str, H+1) * 33) ^ Str[H];
+}
+
 #define USE_WEBSOCKET_SUBSYSTEM 
 
 template <typename T> T CreateRequestStruct(FString &JsonString) {
@@ -79,8 +85,8 @@ void UWebSocketSubsystem::Initialize(FSubsystemCollectionBase &Collection) {
   Socket->Connect();
   
   TSharedPtr<FJsonObject> JsonObject = MakeShared<FJsonObject>();
-  //JsonObject->SetStringField("token", "0545fc9a-258a-402d-a844-69063a00af58");
-  JsonObject->SetStringField("token", "c2e5879a-4b66-45f5-adfa-5385ed18ca0c");
+  JsonObject->SetStringField("token", "0545fc9a-258a-402d-a844-69063a00af58");
+  //JsonObject->SetStringField("token", "c2e5879a-4b66-45f5-adfa-5385ed18ca0c");
   FString OutputString;
   TSharedRef<TJsonWriter<>> Writer = TJsonWriterFactory<>::Create(&OutputString);
   FJsonSerializer::Serialize(JsonObject.ToSharedRef(), Writer);
@@ -147,6 +153,20 @@ void UWebSocketSubsystem::HandleRequest(const FString &Message) const {
   FJsonObjectConverter::JsonObjectStringToUStruct(Message, &Req, 0, 0);
   FString JSONPayload = Message;
 
+
+  std::string test2 = std::string(TCHAR_TO_UTF8(*Req.Type));
+  
+  
+  switch(Str2INT(test2.c_str())) {
+    case Str2INT("ScenariosRequest"): {
+      
+    }
+    case Str2INT("PingRequest"): {
+      SendErrorResponse("ScenarioRequestError","Client haven`t specified language");
+    }
+  }
+
+  
   if (Req.Type == "ScenariosRequest") {
     // #TODO Maybe change this later
 
@@ -171,25 +191,25 @@ void UWebSocketSubsystem::HandleRequest(const FString &Message) const {
     FMapLightRequest Response =
         CreateRequestStruct<FMapLightRequest>(JSONPayload);
     // #TODO Remove this ... ! ?
-    FMapLight Test;
-    Test.Color = FLinearColor::FromSRGBColor(FColor::FromHex(Response.Color));
-    Test.Id = Response.Name;
-    Test.Pos = FVector2D(Response.Northing, Response.Easting);
-    Test.Height = Response.Height;
-    Test.TypeOfMessage = Response.TypeOfMessage;
-    Test.Enabled = true;
-    OnMapLightUpdate.Broadcast(Test);
+    FMapLight Light;
+    Light.Color = FLinearColor::FromSRGBColor(FColor::FromHex(Response.Color));
+    Light.Id = Response.Name;
+    Light.Pos = FVector2D(Response.Northing, Response.Easting);
+    Light.Height = Response.Height;
+    Light.TypeOfMessage = Response.TypeOfMessage;
+    Light.Enabled = true;
+    //OnMapLightUpdate.Broadcast(Light);
   }
 
   if (Req.Type == "LightRequest") {
     FLightRequest Response = CreateRequestStruct<FLightRequest>(JSONPayload);
     // #TODO Remove this ... ! ?
-    FSkyLight2 Test;
-    Test.Day = Response.Day;
-    Test.Month = Response.Month;
-    Test.SolarTime = Response.Solar_Time;
-    Test.Year = Response.Year;
-    OnLightUpdate.Broadcast(Test);
+    FSkyLight2 SkyLight2;
+    SkyLight2.Day = Response.Day;
+    SkyLight2.Month = Response.Month;
+    SkyLight2.SolarTime = Response.Solar_Time;
+    SkyLight2.Year = Response.Year;
+    OnLightUpdate.Broadcast(SkyLight2);
   }
 
   if (Req.Type == "ActivateDatasetRequest") {

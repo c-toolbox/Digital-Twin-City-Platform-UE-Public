@@ -21,9 +21,8 @@ void FZeroMqWorker::HandlePublicTraffic(const std::string &Message_Str) const {
   const TSharedRef<TJsonReader<>> JsonReader =
       TJsonReaderFactory<>::Create(FString(Message_Str.c_str()));
   TSharedPtr<FJsonObject> JsonObject;
-  const auto Res = FJsonSerializer::Deserialize(JsonReader, JsonObject);
-
-  if (Res) {
+  
+  if (FJsonSerializer::Deserialize(JsonReader, JsonObject)) {
     const auto Id = JsonObject->GetStringField("id");
     const auto Heading = JsonObject->GetNumberField("heading");
     const auto Latitude = JsonObject->GetNumberField("latitude");
@@ -46,10 +45,13 @@ void FZeroMqWorker::HandlePublicTraffic(const std::string &Message_Str) const {
     Transport.Color = FColor::FromHex(Color_String);
     Transport.Radius = 5.f;
     Transport.Status = Status_String;
-    UE_LOG(LogTemp, Warning, TEXT("HandlePublicTraffic "));
-    UE_LOG(LogTemp, Warning, TEXT("HandlePublicTraffic %s :"),*Id);
-    UE_LOG(LogTemp, Warning, TEXT("HandlePublicTraffic %f :"),Latitude);
-    UE_LOG(LogTemp, Warning, TEXT("HandlePublicTraffic %f :"),Longitude);
+    
+    UE_LOG(LogTemp, Verbose, TEXT("HandlePublicTraffic "));
+    UE_LOG(LogTemp, Verbose, TEXT("HandlePublicTraffic %s :"),*Id);
+    UE_LOG(LogTemp, Verbose, TEXT("HandlePublicTraffic %f :"),Latitude);
+    UE_LOG(LogTemp, Verbose, TEXT("HandlePublicTraffic %f :"),Longitude);
+
+    
     Queue->Enqueue(Transport);
   }
 }
@@ -58,9 +60,8 @@ void FZeroMqWorker::HandleImageOther(const std::string &Message_Str) const {
   const TSharedRef<TJsonReader<>> JsonReader =
       TJsonReaderFactory<>::Create(FString(Message_Str.c_str()));
   TSharedPtr<FJsonObject> JsonObject;
-  const auto Res = FJsonSerializer::Deserialize(JsonReader, JsonObject);
 
-  if (Res) {
+  if (FJsonSerializer::Deserialize(JsonReader, JsonObject)) {
     const auto Id = JsonObject->GetStringField("id");
     const auto Heading = JsonObject->GetNumberField("heading");
     const auto Latitude = JsonObject->GetNumberField("latitude");
@@ -93,8 +94,8 @@ uint32 FZeroMqWorker::Run() {
   while (Running) {
     zmq::message_t Msg;
     zmq::recv_result_t Rec_Result = Socket->recv(Msg, zmq::recv_flags::none);
-    UE_LOG(LogTemp, Warning, TEXT("FZeroMqWorker, thread is reciving data !"));
-    UE_LOG(LogTemp, Warning, TEXT("On interface : %s"), *IP_Interface);
+    UE_LOG(LogTemp, Verbose, TEXT("FZeroMqWorker, thread is reciving data !"));
+    UE_LOG(LogTemp, Verbose, TEXT("On interface : %s"), *IP_Interface);
     
     
     if (!Rec_Result.has_value())
@@ -102,11 +103,9 @@ uint32 FZeroMqWorker::Run() {
 
     std::string Message_Str = Msg.to_string();
     std::string Topic = Message_Str.substr(0, Message_Str.find(' '));
-
-    const auto Message_Topic = FString(Topic.c_str());
-
+    
     // TODO: Handle message topic nicer !
-    if (Message_Topic == "PublicTraffic") {
+    if (FString(Topic.c_str()) == "PublicTraffic") {
       Message_Str.erase(0, Topic.size() + 1);
       HandlePublicTraffic(Message_Str);
     }
@@ -118,18 +117,18 @@ uint32 FZeroMqWorker::Run() {
 bool FZeroMqWorker::Init() {
   int Major, Minor, Patch = 0;
   zmq::version(&Major, &Minor, &Patch);
-  UE_LOG(LogTemp, Warning, TEXT("ZeroMQ version: v%d.%d.%d"), Major, Minor,
+  UE_LOG(LogTemp, Verbose, TEXT("ZeroMQ version: v%d.%d.%d"), Major, Minor,
          Patch);
   Running = true;
   return true;
 }
 
 void FZeroMqWorker::Stop() {
-  UE_LOG(LogTemp, Warning, TEXT("FZeroMqWorker thread is stopping!"));
+  UE_LOG(LogTemp, Verbose, TEXT("FZeroMqWorker thread is stopping!"));
   Running = false;
 }
 void FZeroMqWorker::Exit() {
-  UE_LOG(LogTemp, Warning, TEXT("FZeroMqWorker thread is Exiting!"));
+  UE_LOG(LogTemp, Verbose, TEXT("FZeroMqWorker thread is Exiting!"));
 }
 
 void FZeroMqWorker::SetQueue(const TSharedPtr<TQueue<FTrafficData>> &Q) {
