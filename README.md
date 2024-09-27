@@ -41,7 +41,7 @@ The GeoReferencing plugin from UE 5.1.1 is currently used in the Digital Twin.
 
 ```mermaid
 gantt
-    title Planning
+    title Timeplan
     dateFormat  YYYY-MM-DD
     section Section
     Datahandling             :a1, 2023-10-23, 30d
