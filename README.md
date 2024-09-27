@@ -34,8 +34,7 @@ This project has been built and tested on:
 The GeoReferencing plugin from UE 5.1.1 is currently used in the Digital Twin.
 
 ## Dependencies
-
-- SimStad traffic server: [SimStad Traffic Server](https://gitlab.liu.se/Exploranation/City/simstad-repos/utils/trafficserver/digitaltwin-norrkoeping-utils)
+- Zmq-plugin: [ZmqPluginforUnreal](https://gitlab.liu.se/Exploranation/City/)
 
 ## Roadmap
 
@@ -54,5 +53,4 @@ gantt
     Update dataset handling  :after a4, 10d
 ```
 # Third Party
-
-- Zmq-plugin: [ZmqPluginforUnreal](https://gitlab.liu.se/Exploranation/City/)
+- SimStad traffic server: [SimStad Traffic Server](https://gitlab.liu.se/Exploranation/City/simstad-repos/utils/trafficserver/digitaltwin-norrkoeping-utils)
