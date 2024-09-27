@@ -50,6 +50,8 @@ gantt
     Improve Dynamic visuals  :a2, 2023-11-15, 30d
     Handle mediadataset      :after a2, 15d
     Deployment and testing   :a3, 2024-02-01, 30d
+    New design features      :a4, 2024-09-27, 10d
+    Update dataset handling  :after a4, 10d
 ```
 # Third Party
 
