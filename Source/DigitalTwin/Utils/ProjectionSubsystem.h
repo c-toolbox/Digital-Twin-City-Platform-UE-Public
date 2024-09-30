@@ -12,11 +12,11 @@ struct DIGITALTWIN_API FProjectionScreen
 {
   GENERATED_BODY()
     UPROPERTY(Editanywhere)
-    FVector LowerLeftCorner;
+    FVector LowerLeftCorner = FVector::Zero();
   UPROPERTY(Editanywhere)
-    FVector LowerRightCorner;
+    FVector LowerRightCorner = FVector::Zero();
   UPROPERTY(Editanywhere)
-    FVector UpperLeftCorner;
+    FVector UpperLeftCorner = FVector::Zero();
 };
 
 
