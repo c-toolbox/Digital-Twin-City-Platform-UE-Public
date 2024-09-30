@@ -40,7 +40,7 @@ public:
     void ActivateDataset(const FString& CatalogName, const FString& DatasetName, int32 SortOrder, FString MaterialPath);
 
   UFUNCTION(BlueprintCallable, Category = "DigitalTwin|Datasets")
-    UTexture2D* ActivateDataset2(const FString& CatalogName, const FString& DatasetName);
+    UTexture2D* GetDatasetAsTexture(const FString& CatalogName, const FString& DatasetName);
 
   UFUNCTION(BlueprintCallable, Category = "DigitalTwin|Datasets")
     void DisableAllDatasets();
