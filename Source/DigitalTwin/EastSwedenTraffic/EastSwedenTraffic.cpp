@@ -3,23 +3,11 @@
 #include "GeoReferencingSystem.h"
 #include "DigitalTwin/Communication/ZeroMQCommunication.h"
 
-
-
 float Remap(const float value, const float low_1 , const float high_1 ,
             const float low_2 , const float high_2) {
   
   return low_2 + (value - low_1 ) * (high_2 - low_2 ) / ( high_1 - low_1);
 }
-
-
-
-
-float Remap(const float value, const float low_1 , const float high_1 ,
-            const float low_2 , const float high_2) {
-  
-  return low_2 + (value - low_1 ) * (high_2 - low_2 ) / ( high_1 - low_1);
-}
-
 
 AEastSwedenTraffic::AEastSwedenTraffic() : TrafficMesh(nullptr) {
   PrimaryActorTick.bCanEverTick = true;
