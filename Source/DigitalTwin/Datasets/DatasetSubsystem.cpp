@@ -160,10 +160,11 @@ UTexture2D* UDatasetSubsystem::GetDatasetAsTexture(const FString &CatalogName,
   RasterTexture->PlatformData->Mips[0].BulkData.Unlock();  
   RasterTexture->UpdateResource();
 
-  //FEvent Extent;
-  
-  return RasterTexture;
-  
+  if (RasterTexture->IsValidLowLevel()) {
+    return RasterTexture;
+  } 
+
+  return nullptr;
 }
 
 bool UDatasetSubsystem::CheckDatasetCatalog(UDatasetCatalog* Catalog) {
