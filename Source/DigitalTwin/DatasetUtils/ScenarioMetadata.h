@@ -16,7 +16,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = ScenarioMetaData)
 		int32 ZOrder;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = ScenarioMetaData)
-		float Opacity;
+		float Opacity = 0.0f;
 };
 
 USTRUCT(BlueprintType, Category = ScenarioMetaData)
@@ -61,31 +61,31 @@ struct DIGITALTWIN_API FScenarioSubSection {
 	GENERATED_USTRUCT_BODY()
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Scenario)
-	FString Title;
+	FString Title = "";
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Scenario)
-	FString Comment;
+	FString Comment = "";
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Scenario)
-	FString Text1;
+	FString Text1 = "";
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Scenario)
-	FString Text2;
+	FString Text2 = "";
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Scenario)
-	FString Legend1;
+	FString Legend1 = "";
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Scenario)
-	FString Legend2;
+	FString Legend2 = "";
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Scenario)
-	FString Filenames;
+	FString Filenames = "";
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Scenario)
-	bool Default;
+	bool Default = false;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Scenario)
-	bool IsIdle;
+	bool IsIdle = false;
 		
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Scenario)
 	TArray<FString> FilenameArray;
@@ -94,7 +94,7 @@ struct DIGITALTWIN_API FScenarioSubSection {
 	ScenarioSubSectionType SectionType;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Scenario)
-	FVector2D Lat_Lon;
+	FVector2D Lat_Lon = FVector2D::Zero();
 
 };
 

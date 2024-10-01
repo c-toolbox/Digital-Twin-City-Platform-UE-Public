@@ -125,7 +125,7 @@ void UDatasetSubsystem::ActivateDataset(const FString& CatalogName, const FStrin
   }
 }
 
-UTexture2D* UDatasetSubsystem::ActivateDataset2(const FString &CatalogName,
+UTexture2D* UDatasetSubsystem::GetDatasetAsTexture(const FString &CatalogName,
                                          const FString &DatasetName) {
   
   // 1. Find folder/catalog ...
@@ -138,7 +138,7 @@ UTexture2D* UDatasetSubsystem::ActivateDataset2(const FString &CatalogName,
   }
 
   // 2. Check if images exists ...
-  const auto FileName = FolderName + "/" + DatasetName;
+  const auto FileName = FolderName + "/" + DatasetName+".png";
   if(FPaths::FileExists(FileName)) {
     UE_LOG(LogTemp, Warning, TEXT("File %s ,exists i Filedatabase !"), *DatasetName);
   } else {
@@ -160,17 +160,11 @@ UTexture2D* UDatasetSubsystem::ActivateDataset2(const FString &CatalogName,
   RasterTexture->PlatformData->Mips[0].BulkData.Unlock();  
   RasterTexture->UpdateResource();
 
-  //FEvent Extent;
-  
-  RasterActor = GetWorld()->SpawnActor<ARasterActor>();
+  if (RasterTexture->IsValidLowLevel()) {
+    return RasterTexture;
+  } 
 
-  RasterActor->DatasetName = DatasetName;
-  RasterActor->SetDecalTexture(RasterTexture,0);
-  //RasterActor->SetExtent(Extent);
-
-  
-  return RasterTexture;
-  
+  return nullptr;
 }
 
 bool UDatasetSubsystem::CheckDatasetCatalog(UDatasetCatalog* Catalog) {

@@ -11,15 +11,15 @@ struct DIGITALTWIN_API FTrafficData
 	UPROPERTY(BlueprintReadWrite)
 	FString Type;
 	UPROPERTY(BlueprintReadWrite)
-	int32 TimeStamp;
+	int32 TimeStamp = 0;
 	UPROPERTY(BlueprintReadWrite)
 	FVector Position;
 	UPROPERTY(BlueprintReadWrite)
-	float Heading;
+	float Heading = 0.0f;
 	UPROPERTY(BlueprintReadWrite)
-	FColor Color;
+	FColor Color = FColor::White;
 	UPROPERTY(BlueprintReadWrite)
-	float Radius;
+	float Radius = 0.0f;
 	UPROPERTY(BlueprintReadWrite)
 	FString Status;
 };
@@ -31,15 +31,15 @@ struct DIGITALTWIN_API FMapLight
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Utils)
 	FString Id;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Utils)
-	FVector2D Pos;
+	FVector2D Pos = FVector2D::Zero();
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Utils)
-	FLinearColor Color;
+	FLinearColor Color = FLinearColor::White;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Utils)
 	FString TypeOfMessage;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Utils)
-	bool Enabled;
+	bool Enabled = true;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Utils)
-	float Height;
+	float Height = 0.0f;
 };
 
 USTRUCT(BlueprintType)

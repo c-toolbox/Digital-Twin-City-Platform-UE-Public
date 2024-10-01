@@ -21,3 +21,5 @@ Scenarios
 qodana.yaml
 DigitalTwin.sln.DotSettings.user
 Plugins/Developer/RiderLink
+Datasets/*
+Content/Datasets
