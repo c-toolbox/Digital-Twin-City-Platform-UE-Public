@@ -6,10 +6,8 @@ Copyright 2024, Linköping University, All rights reserved.
 **Version:** 1.0.1
 
 *Product Owner:* Erik Junholm
-*Tech lead:* Erik Junholm  
-
-
-**Developers:** David Beuger, Anders Kettisen  
+*Tech lead:* Erik Junholm
+**Developers:** David Beuger, Tobias Pettersson  
 **Hall of Fame:** Mikael Pettersson
 
 This is the home of the Digital Twin project.
@@ -27,7 +25,7 @@ This is the home of the Digital Twin project.
 This project has been built and tested on:
 - Windows
 - Unreal Engine 5.1.1
-- Visual Studio 2019
+- Visual Studio 2022 Community
 
 ## Plugins
 
