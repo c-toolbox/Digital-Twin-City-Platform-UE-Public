@@ -1,0 +1,35 @@
+build-job:
+  stage: build
+  tags:
+    - windows
+    - unreal
+  script:
+    - $UE4_VERSION = ue4-cli-rs --getrootdir
+    - pwd
+    - ls
+    - ./build_script.ps1
+
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+  cache:
+    key: build-cache
+    paths:
+      - Saved\StagedBuilds\Windows
+
+deploy-manually:
+  stage: deploy
+  when: manual
+  tags:
+    - windows
+    - unreal
+  script:
+    - Compress-Archive -Path Saved\StagedBuilds\Windows  DigitalTwin.zip
+
+  artifacts:
+    paths:
+      - Saved\StagedBuilds\Windows
+    expire_in: 10 days
+  cache:
+    key: build-cache
+    paths:
+      - Saved\StagedBuilds\Windows

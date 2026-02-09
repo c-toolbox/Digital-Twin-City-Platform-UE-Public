@@ -1,0 +1,307 @@
+{
+	"nDisplay":
+	{
+		"description": "LightAct generated UE nDisplay config file. Generated on 2024-03-05 17:18:30",
+		"version": "5.00",
+		"assetPath": "/Game/NDisplay/nDisplayConfig1_1.nDisplayConfig1_1",
+		"misc":
+		{
+			"bFollowLocalPlayerCamera": false,
+			"bExitOnEsc": false,
+			"bOverrideViewportsFromExternalConfig": false
+		},
+		"scene":
+		{
+			"xforms":
+			{
+				"lightact_viewport_transform":
+				{
+					"parentId": "",
+					"location":
+					{
+						"x": 0,
+						"y": 0,
+						"z": 0
+					},
+					"rotation":
+					{
+						"pitch": -0,
+						"yaw": -90,
+						"roll": 0
+					}
+				},
+				"viewport_origin":
+				{
+					"parentId": "lightact_viewport_transform",
+					"location":
+					{
+						"x": 0,
+						"y": 0,
+						"z": 0
+					},
+					"rotation":
+					{
+						"pitch": 0,
+						"yaw": 0,
+						"roll": 0
+					}
+				}
+			},
+			"cameras":
+			{
+				"DefaultViewPoint":
+				{
+					"interpupillaryDistance": 6.4000000953674316,
+					"swapEyes": false,
+					"stereoOffset": "none",
+					"parentId": "",
+					"location":
+					{
+						"x": 0,
+						"y": 0,
+						"z": 50
+					},
+					"rotation":
+					{
+						"pitch": 0,
+						"yaw": 0,
+						"roll": 0
+					}
+				},
+				"LAProj_0_camera":
+				{
+					"interpupillaryDistance": 6.4000000953674316,
+					"swapEyes": false,
+					"stereoOffset": "none",
+					"parentId": "viewport_origin",
+					"location":
+					{
+						"x": -1403.8687744140625,
+						"y": 59.841983795166016,
+						"z": 4928.7861328125
+					},
+					"rotation":
+					{
+						"pitch": -89.685340881347656,
+						"yaw": 110.47940063476563,
+						"roll": -20.309297561645508
+					}
+				},
+				"LAProj_1_camera":
+				{
+					"interpupillaryDistance": 6.4000000953674316,
+					"swapEyes": false,
+					"stereoOffset": "none",
+					"parentId": "viewport_origin",
+					"location":
+					{
+						"x": -69.078506469726563,
+						"y": -2123.7978515625,
+						"z": 7838.08837890625
+					},
+					"rotation":
+					{
+						"pitch": -89.29058837890625,
+						"yaw": -104.73492431640625,
+						"roll": -165.10809326171875
+					}
+				}
+			},
+			"screens":
+			{
+				"LAProj_0_screen":
+				{
+					"size":
+					{
+						"width": 73.091575622558594,
+						"height": 54.818683624267578
+					},
+					"parentId": "viewport_origin",
+					"location":
+					{
+						"x": -1375.6358642578125,
+						"y": 80.145957946777344,
+						"z": 4828.83447265625
+					},
+					"rotation":
+					{
+						"pitch": -89.685340881347656,
+						"yaw": 110.47940063476563,
+						"roll": -20.309297561645508
+					}
+				},
+				"LAProj_1_screen":
+				{
+					"size":
+					{
+						"width": 46.124725341796875,
+						"height": 34.593540191650391
+					},
+					"parentId": "viewport_origin",
+					"location":
+					{
+						"x": -68.227783203125,
+						"y": -2110.172607421875,
+						"z": 7737.9150390625
+					},
+					"rotation":
+					{
+						"pitch": -89.29058837890625,
+						"yaw": -104.73492431640625,
+						"roll": -165.10809326171875
+					}
+				}
+			}
+		},
+		"cluster":
+		{
+			"primaryNode":
+			{
+				"id": "Test_2",
+				"ports":
+				{
+					"ClusterSync": 41001,
+					"ClusterEventsJson": 41003,
+					"ClusterEventsBinary": 41004
+				}
+			},
+			"sync":
+			{
+				"renderSyncPolicy":
+				{
+					"type": "None",
+					"parameters":
+					{
+					}
+				},
+				"inputSyncPolicy":
+				{
+					"type": "ReplicatePrimary",
+					"parameters":
+					{
+					}
+				}
+			},
+			"network":
+			{
+				"ConnectRetriesAmount": "300",
+				"ConnectRetryDelay": "1000",
+				"GameStartBarrierTimeout": "18000000",
+				"FrameStartBarrierTimeout": "1800000",
+				"FrameEndBarrierTimeout": "1800000",
+				"RenderSyncBarrierTimeout": "1800000"
+			},
+			"failover":
+			{
+				"failoverPolicy": "Disabled"
+			},
+			"nodes":
+			{
+				"Test_2":
+				{
+					"host": "172.19.53.41",
+					"sound": true,
+					"fullScreen": true,
+					"textureShare": true,
+					"window":
+					{
+						"x": 0,
+						"y": 0,
+						"w": 3200,
+						"h": 4800
+					},
+					"postprocess":
+					{
+					},
+					"viewports":
+					{
+						"LAProj_0":
+						{
+							"camera": "LAProj_0_camera",
+							"bufferRatio": 1,
+							"gPUIndex": -1,
+							"allowCrossGPUTransfer": false,
+							"isShared": false,
+							"overscan":
+							{
+								"bEnabled": false,
+								"mode": "percent",
+								"left": 0,
+								"right": 0,
+								"top": 0,
+								"bottom": 0,
+								"oversize": true
+							},
+							"region":
+							{
+								"x": 0,
+								"y": 0,
+								"w": 3200,
+								"h": 2400
+							},
+							"projectionPolicy":
+							{
+								"type": "simple",
+								"parameters":
+								{
+									"screen": "LAProj_0_screen"
+								}
+							}
+						},
+						"LAProj_1":
+						{
+							"camera": "LAProj_1_camera",
+							"bufferRatio": 1,
+							"gPUIndex": -1,
+							"allowCrossGPUTransfer": false,
+							"isShared": false,
+							"overscan":
+							{
+								"bEnabled": false,
+								"mode": "percent",
+								"left": 0,
+								"right": 0,
+								"top": 0,
+								"bottom": 0,
+								"oversize": true
+							},
+							"region":
+							{
+								"x": 0,
+								"y": 2400,
+								"w": 3200,
+								"h": 2400
+							},
+							"projectionPolicy":
+							{
+								"type": "simple",
+								"parameters":
+								{
+									"screen": "LAProj_1_screen"
+								}
+							}
+						}
+					},
+					"outputRemap":
+					{
+						"bEnable": false,
+						"dataSource": "mesh",
+						"staticMeshAsset": "",
+						"externalFile": ""
+					}
+				}
+			}
+		},
+		"customParameters":
+		{
+			"SampleArg1": "SampleVal1",
+			"SampleArg2": "SampleVal2"
+		},
+		"diagnostics":
+		{
+			"simulateLag": false,
+			"minLagTime": 0.0099999997764825821,
+			"maxLagTime": 0.30000001192092896
+		}
+	}
+}
